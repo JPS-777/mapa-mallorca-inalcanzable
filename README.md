@@ -150,11 +150,3 @@ ese es justamente el punto. Es lo contrario de los estudios de carga que critica
       Se pivota a la cara B (turística) y no se pierde la inversión.
 
 ---
-
-## 8. Regla de oro
-
-> Primero calculamos. Después decidimos el titular.
-> Nunca al revés.
-
-La fuerza de este mapa es ser aritmética honesta frente a percepciones.
-Si lo forzamos, nos convertimos en aquello que criticamos.
