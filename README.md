@@ -1,10 +1,10 @@
-# El mapa de la Mallorca inalcanzable — cómo obtener los datos 100% reales
+# El mapa de la Mallorca inalcanzable - cómo obtener los datos 100% reales
 
 Proyecto BALEARES (ANEVAL/BALEVAL) · LLYC
 
 ---
 
-## 1. ¿Qué es GTFS? (en cristiano)
+## 1. ¿Qué es GTFS?
 
 **GTFS = General Transit Feed Specification.** Es el formato estándar mundial con el que
 las empresas de transporte público publican sus horarios. Es lo que lee Google Maps cuando
