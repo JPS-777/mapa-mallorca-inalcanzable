@@ -1,5 +1,4 @@
-# El mapa de la Mallorca inalcanzable - cómo obtener los datos 100% reales
-
+# El mapa de la Mallorca inalcanzable - cómo obtener los datos
 Proyecto BALEARES (ANEVAL/BALEVAL) · LLYC
 
 ---
