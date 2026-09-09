@@ -1,0 +1,5 @@
+Coloca aqui los tres ficheros de datos:
+
+  tib_gtfs.zip      <- GTFS oficial del TIB (descargar, ver README_DATOS.md)
+  mallorca.osm.pbf  <- red viaria OpenStreetMap (descargar, ver README_DATOS.md)
+  mallorca.geojson  <- limites IGN (YA INCLUIDO)

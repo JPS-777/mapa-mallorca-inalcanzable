@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El mapa de la Mallorca inalcanzable · datos reales</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif;background:#fff;color:#4A5568;padding:18px}
+  .wrap{max-width:1120px;margin:0 auto}
+  .warn{border:2px solid #1E7A46;background:#EAF6EF;border-radius:5px;padding:11px 14px;margin-bottom:14px}
+  .warn b{color:#1E7A46;font-size:12px;letter-spacing:.05em}
+  .warn p{font-size:12px;margin-top:4px;line-height:1.5}
+  h1{font-size:25px;color:#002B49;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+  h1 span{color:#E31B23}
+  .sub{font-size:13.5px;margin-top:7px;max-width:720px;line-height:1.5}
+  .grid{display:grid;grid-template-columns:1fr 300px;gap:22px;margin-top:18px;align-items:start}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  .panel{border:1px solid #E2E8F0;border-radius:6px;padding:16px}
+  .ctl{margin-bottom:16px}
+  .lbl{font-size:10.5px;font-weight:700;color:#002B49;letter-spacing:.07em;margin-bottom:7px}
+  .seg{display:flex;border:1px solid #CBD5E1;border-radius:5px;overflow:hidden}
+  .seg button{flex:1;padding:8px 4px;font-size:12.5px;font-weight:600;background:#fff;color:#4A5568;
+    border:0;cursor:pointer;font-family:inherit;transition:.12s}
+  .seg button.on{background:#002B49;color:#fff}
+  .seg button:not(.on):hover{background:#F1F5F9}
+  .stat{border-left:3px solid #E31B23;padding:8px 0 8px 11px;margin-bottom:12px;background:#FAFBFC;position:relative}
+  .stat .big{font-size:27px;font-weight:800;color:#002B49;line-height:1}
+  .stat .cap{font-size:11px;margin-top:3px;line-height:1.35}
+  .stat.teal{border-left-color:#36A7B7}
+  .simchip{position:absolute;top:6px;right:6px;background:#E31B23;color:#fff;font-size:8px;
+    font-weight:800;letter-spacing:.08em;padding:2px 5px;border-radius:2px}
+  .mapbox{border:1px solid #E2E8F0;border-radius:6px;background:#F8FAFC;overflow:hidden;position:relative}
+  svg{display:block;width:100%;height:auto}
+  .mun{stroke:#fff;stroke-width:.7;transition:fill .35s;cursor:pointer}
+  .mun.ok{fill:#36A7B7}
+  .mun.no{fill:#C9D3DA}
+  .mun:hover{stroke:#002B49;stroke-width:1.5}
+  .neg{stroke:#fff;stroke-width:1;cursor:pointer;transition:opacity .3s}
+  .neg.bodega{fill:#7B3F8F}
+  .neg.agroturismo{fill:#B8860B}
+  .neg.gastronomia{fill:#2F8F5B}
+  .neg.proxima{stroke:#002B49;stroke-dasharray:1.4 1.1;fill-opacity:.55}
+  .neg.hide{display:none}
+  .ap{fill:#E31B23;stroke:#fff;stroke-width:1.6}
+  .aplbl-bg{fill:#ffffff;fill-opacity:.85;stroke:#E31B23;stroke-width:.6}
+  .aplbl{font-size:9.5px;font-weight:700;fill:#E31B23;text-anchor:middle}
+  .wm{pointer-events:none}
+  .wm text{font-size:20px;font-weight:800;fill:#E31B23;opacity:.13;letter-spacing:.13em}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid #E2E8F0;
+    background:#fff;font-size:10.5px;align-items:center}
+  .key{display:flex;align-items:center;gap:5px}
+  .sw{width:11px;height:11px;border-radius:2px}
+  .tip{position:fixed;background:#002B49;color:#fff;font-size:11.5px;padding:6px 9px;border-radius:4px;
+    pointer-events:none;opacity:0;transition:opacity .12s;z-index:9;line-height:1.45;max-width:260px}
+  .foot{margin-top:14px;font-size:10.5px;color:#878E90;line-height:1.55;border-top:1px solid #E2E8F0;padding-top:10px}
+  .chk{display:flex;align-items:center;gap:7px;font-size:12.5px;cursor:pointer;user-select:none;margin-bottom:6px}
+</style></head><body><div class="wrap">
+
+<div class="warn"><b>DATOS REALES — TIEMPOS Y NEGOCIOS</b>
+   <p>Tiempos: GTFS oficial TIB + EMT Palma (CC-BY 4.0) + OpenStreetMap, motor R5 via r5py. Negocios: 83 geocodificados (Nominatim/OSM) y asignados a
+   su municipio oficial por geometría real del IGN. 4 casos marcados como "cerca de un límite administrativo"
+   se muestran con nota, sin asignación forzada. Metodología replicable detallada al pie.</p></div>
+
+<h1>El mapa de la Mallorca <span>inalcanzable</span></h1>
+<p class="sub">Hasta dónde se puede llegar desde el aeropuerto de Palma sin coche de alquiler?
+Compara el alcance en transporte público frente al vehículo, y dónde quedan bodegas, agroturismos
+y gastronomía de interior.</p>
+
+<div class="grid">
+  <div>
+    <div class="mapbox">
+      <svg viewBox="0 0 760 560" id="map">
+        <g id="muns">
+<path class="mun" d="M252.6 159.4L255.7 168.1L263 163.2L272.4 171L267.2 190.5L271.4 196.3L272.4 210.9L268.2 212.9L255.7 197.3L248.4 198.3L239 188.5L228.5 193.4L224.4 185.6L237.9 175.9L252.6 159.4Z" data-n="Valldemossa" data-tp="94" data-car="43"></path>
+<path class="mun" d="M467.7 273.2L467.7 261.5L475 257.6L478.2 262.5L502.2 260.5L498 264.4L504.3 279L487.6 287.8L479.2 284.9L467.7 273.2Z" data-n="Vilafranca de Bonany" data-tp="67" data-car="44"></path>
+<path class="mun" d="M412.4 155.5L413.4 151.6L433.3 136L426 162.3L412.4 155.5Z" data-n="Búger" data-tp="96" data-car="41"></path>
+<path class="mun" d="M396.7 117.5L409.2 111.7L405.1 106.8L409.2 111.7L426 104.9L435.4 115.6L423.9 125.3L433.3 136L413.4 151.6L397.8 128.2L396.7 117.5Z" data-n="Campanet" data-tp="94" data-car="42"></path>
+<path class="mun" d="M412.4 328.6L433.3 329.6L458.3 320.9L471.9 341.3L478.2 355.9L470.9 361.7L475 366.6L462.5 379.2L448.9 395.8L424.9 411.4L427 404.5L414.5 390.9L398.8 388L405.1 357.8L415.5 345.2L410.3 337.4L412.4 328.6Z" data-n="Campos" data-tp="86" data-car="36"></path>
+<path class="mun" d="M626.5 154.5L643.2 158.4L641.1 173L651.6 173L643.2 182.7L642.2 212.9L634.9 212.9L633.8 225.5L612.9 202.2L616.1 194.4L607.7 192.4L607.7 183.7L621.3 170.1L626.5 154.5Z" data-n="Capdepera" data-tp="135" data-car="81"></path>
+<path class="mun" d="M330.9 202.2L345.5 192.4L361.2 209L354.9 214.8L347.6 219.7L330.9 202.2Z" data-n="Consell" data-tp="94" data-car="33"></path>
+<path class="mun" d="M405.1 201.2L418.6 198.3L420.7 205.1L415.5 216.8L410.3 227.5L397.8 222.6L392.5 209L405.1 201.2Z" data-n="Costitx" data-tp="113" data-car="43"></path>
+<path class="mun" d="M273.5 141.8L280.8 155.5L276.6 162.3L272.4 171L263 163.2L255.7 168.1L252.6 159.4L262 146.7L273.5 141.8Z" data-n="Deià" data-tp="115" data-car="54"></path>
+<path class="mun" d="M395.7 65L395.7 76.6L400.9 85.4L405.1 106.8L409.2 111.7L396.7 117.5L386.3 116.5L369.6 130.2L356 140.9L344.5 146.7L339.3 139.9L325.7 144.8L321.5 154.5L311.1 155.5L318.4 147.7L316.3 141.8L330.9 126.3L320.5 111.7L306.9 108.8L326.7 101L325.7 94.2L340.3 94.2L363.3 80.5L372.7 78.6L379 70.8L395.7 65Z" data-n="Escorca" data-tp="206" data-car="61"></path>
+<path class="mun" d="M316.3 174.9L338.2 159.4L332 153.5L339.3 139.9L344.5 146.7L356 140.9L360.2 143.8L356 158.4L349.7 160.3L351.8 172L361.2 177.8L354.9 176.9L345.5 184.6L345.5 192.4L330.9 202.2L321.5 189.5L316.3 174.9Z" data-n="Alaró" data-tp="120" data-car="38"></path>
+<path class="mun" d="M470.9 82.5L482.4 90.3L492.8 83.5L497 86.4L521 68.9L525.2 71.8L516.8 82.5L521 91.2L513.7 101L497 104.9L492.8 101L485.5 115.6L469.8 123.4L450 122.4L446.8 112.6L451 114.6L453.1 97.1L470.9 82.5Z" data-n="Alcúdia" data-tp="102" data-car="52"></path>
+<path class="mun" d="M350.8 275.1L359.1 263.5L356 252.8L367.5 243L385.2 239.1L387.3 243L405.1 237.2L409.2 245L405.1 253.7L415.5 270.3L413.4 290.7L405.1 287.8L393.6 295.6L379 292.6L350.8 275.1Z" data-n="Algaida" data-tp="67" data-car="35"></path>
+<path class="mun" d="M108.4 262.5L109.5 256.6L123.1 246.9L114.7 259.6L108.4 262.5ZM169 219.7L174.2 229.4L180.5 253.7L172.1 258.6L170.1 266.4L176.3 271.2L162.7 291.7L162.7 284.9L154.4 283.9L146 293.6L136.6 273.2L127.2 267.4L131.4 259.6L126.2 253.7L131.4 242.1L145 238.2L169 219.7Z" data-n="Andratx" data-tp="110" data-car="41"></path>
+<path class="mun" d="M540.9 166.2L549.2 168.1L581.6 150.6L586.8 135L592 132.1L606.7 145.7L618.1 146.7L626.5 154.5L621.3 170.1L607.7 183.7L607.7 192.4L616.1 194.4L612.9 202.2L605.6 207L599.3 202.2L588.9 208L580.5 208L579.5 220.6L565.9 213.8L569.1 206.1L560.7 198.3L547.1 195.4L535.6 183.7L540.9 166.2Z" data-n="Artà" data-tp="129" data-car="74"></path>
+<path class="mun" d="M224.4 185.6L228.5 193.4L224.4 202.2L211.8 202.2L202.4 212.9L193 203.1L198.3 195.4L212.9 184.6L224.4 185.6Z" data-n="Banyalbufar" data-tp="121" data-car="54"></path>
+<path class="mun" d="M345.5 192.4L345.5 184.6L354.9 176.9L361.2 177.8L375.8 189.5L387.3 194.4L377.9 212.9L361.2 209L345.5 192.4Z" data-n="Binissalem" data-tp="86" data-car="35"></path>
+<path class="mun" d="M272.4 210.9L271.4 196.3L267.2 190.5L272.4 171L276.6 162.3L288.1 165.2L295.4 154.5L311.1 155.5L321.5 154.5L325.7 144.8L339.3 139.9L332 153.5L338.2 159.4L316.3 174.9L305.8 186.6L309 209.9L291.2 215.8L272.4 210.9Z" data-n="Bunyola" data-tp="89" data-car="34"></path>
+<path class="mun" d="M174.2 229.4L181.5 220.6L192 225.5L190.9 238.2L202.4 250.8L240 241.1L228.5 250.8L232.7 259.6L243.2 265.4L235.9 272.2L244.2 277.1L240 285.8L226.5 286.8L216 295.6L216 313.1L209.7 331.6L199.3 329.6L178.4 303.4L183.6 294.6L176.3 283.9L162.7 291.7L176.3 271.2L170.1 266.4L172.1 258.6L180.5 253.7L174.2 229.4Z" data-n="Calvià" data-tp="127" data-car="37"></path>
+<path class="mun" d="M211.8 202.2L224.4 202.2L228.5 193.4L239 188.5L248.4 198.3L255.7 197.3L268.2 212.9L260.9 218.7L246.3 211.9L240 214.8L230.6 227.5L220.2 223.6L222.3 214.8L211.8 202.2Z" data-n="Esporles" data-tp="105" data-car="39"></path>
+<path class="mun" d="M193 203.1L202.4 212.9L192 225.5L181.5 220.6L174.2 229.4L169 219.7L181.5 214.8L193 203.1Z" data-n="Estellencs" data-tp="137" data-car="64"></path>
+<path class="mun" d="M479.2 284.9L487.6 287.8L499.1 299.5L504.3 294.6L511.6 305.3L521 305.3L531.5 320.9L526.2 328.6L559.7 343.2L555.5 356.9L541.9 380.2L524.1 359.8L520 367.6L508.5 359.8L506.4 365.6L483.4 369.5L475 366.6L470.9 361.7L478.2 355.9L471.9 341.3L458.3 320.9L467.7 307.2L482.4 308.2L471.9 296.5L479.2 284.9Z" data-n="Felanitx" data-tp="99" data-car="49"></path>
+<path class="mun" d="M375.8 189.5L376.9 171L412.4 155.5L426 162.3L431.2 167.1L430.1 180.8L422.8 192.4L418.6 198.3L405.1 201.2L397.8 191.5L387.3 194.4L375.8 189.5Z" data-n="Inca" data-tp="80" data-car="39"></path>
+<path class="mun" d="M304.8 111.7L306.9 108.8L320.5 111.7L330.9 126.3L316.3 141.8L311.1 144.8L302.7 135L310 121.4L304.8 111.7Z" data-n="Fornalutx" data-tp="137" data-car="55"></path>
+<path class="mun" d="M405.1 237.2L410.3 227.5L415.5 216.8L421.8 224.5L441.6 240.1L423.9 243L421.8 246.9L409.2 245L405.1 237.2Z" data-n="Lloret de Vistalegre" data-tp="112" data-car="45"></path>
+<path class="mun" d="M356 158.4L358.1 162.3L368.5 171L376.9 171L375.8 189.5L361.2 177.8L351.8 172L349.7 160.3L356 158.4Z" data-n="Lloseta" data-tp="88" data-car="40"></path>
+<path class="mun" d="M422.8 192.4L430.1 180.8L431.2 167.1L439.5 161.3L450 176.9L463.6 183.7L447.9 209.9L422.8 192.4Z" data-n="Llubí" data-tp="121" data-car="43"></path>
+<path class="mun" d="M350.8 275.1L379 292.6L393.6 295.6L405.1 287.8L413.4 290.7L417.6 294.6L413.4 303.4L419.7 310.2L411.3 317.9L412.4 328.6L410.3 337.4L415.5 345.2L405.1 357.8L398.8 388L388.4 392.9L375.8 387L358.1 387L351.8 392.9L340.3 386.1L333 389L315.2 369.5L310 355.9L314.2 344.2L301.7 320.9L315.2 303.4L326.7 299.5L338.2 284.9L350.8 275.1Z" data-n="Llucmajor" data-tp="73" data-car="30"></path>
+<path class="mun" d="M502.2 260.5L506.4 235.2L504.3 229.4L514.7 213.8L517.9 214.8L528.3 198.3L536.7 205.1L542.9 199.2L548.2 217.7L542.9 225.5L559.7 257.6L569.1 262.5L577.4 257.6L604.6 265.4L601.4 275.1L588.9 281L568 306.3L561.7 324.8L559.7 343.2L526.2 328.6L531.5 320.9L521 305.3L511.6 305.3L504.3 294.6L499.1 299.5L487.6 287.8L504.3 279L498 264.4L502.2 260.5Z" data-n="Manacor" data-tp="87" data-car="58"></path>
+<path class="mun" d="M356 158.4L360.2 143.8L356 140.9L369.6 130.2L380 146.7L381 160.3L358.1 162.3L356 158.4Z" data-n="Mancor de la Vall" data-tp="121" data-car="49"></path>
+<path class="mun" d="M447.9 209.9L463.6 183.7L470.9 186.6L482.4 199.2L495.9 196.3L503.3 188.5L508.5 191.5L489.7 210.9L469.8 211.9L447.9 209.9Z" data-n="Maria de la Salut" data-tp="145" data-car="51"></path>
+<path class="mun" d="M291.2 215.8L309 209.9L327.8 222.6L337.2 237.2L326.7 245L310 245L285 255.7L287 247.9L276.6 225.5L291.2 215.8Z" data-n="Marratxí" data-tp="80" data-car="24"></path>
+<path class="mun" d="M409.2 245L421.8 246.9L434.3 251.8L433.3 258.6L443.7 257.6L451 274.2L433.3 281L417.6 294.6L413.4 290.7L415.5 270.3L405.1 253.7L409.2 245Z" data-n="Montuïri" data-tp="68" data-car="40"></path>
+<path class="mun" d="M439.5 161.3L448.9 161.3L464.6 134.1L474 128.2L469.8 123.4L485.5 115.6L489.7 131.1L498 140.9L469.8 173.9L463.6 183.7L450 176.9L439.5 161.3Z" data-n="Muro" data-tp="141" data-car="54"></path>
+<path class="mun" d="M268.2 212.9L272.4 210.9L291.2 215.8L276.6 225.5L287 247.9L285 255.7L310 245L326.7 245L337.2 237.2L341.4 239.1L345.5 248.9L356 252.8L359.1 263.5L350.8 275.1L338.2 284.9L326.7 299.5L315.2 303.4L306.9 290.7L286 274.2L259.9 264.4L256.7 278.1L244.2 277.1L235.9 272.2L243.2 265.4L232.7 259.6L228.5 250.8L240 241.1L241.1 235.2L230.6 227.5L240 214.8L246.3 211.9L260.9 218.7L268.2 212.9Z" data-n="Palma" data-tp="42" data-car="27"></path>
+<path class="mun" d="M412.4 328.6L411.3 317.9L419.7 310.2L413.4 303.4L417.6 294.6L433.3 281L451 274.2L467.7 273.2L479.2 284.9L471.9 296.5L482.4 308.2L467.7 307.2L458.3 320.9L433.3 329.6L412.4 328.6Z" data-n="Porreres" data-tp="106" data-car="42"></path>
+<path class="mun" d="M460.4 232.3L469.8 225.5L477.1 220.6L480.3 227.5L490.7 227.5L504.3 215.8L516.8 188.5L523.1 185.6L529.4 194.4L535.6 183.7L547.1 195.4L542.9 199.2L536.7 205.1L528.3 198.3L517.9 214.8L514.7 213.8L504.3 229.4L506.4 235.2L502.2 260.5L478.2 262.5L475 257.6L460.4 244L460.4 232.3Z" data-n="Petra" data-tp="107" data-car="51"></path>
+<path class="mun" d="M470.9 82.5L453.1 97.1L451 114.6L446.8 112.6L435.4 115.6L426 104.9L409.2 111.7L405.1 106.8L400.9 85.4L395.7 76.6L395.7 65L408.2 53.3L424.9 60.1L443.7 43.6L459.4 45.5L456.2 51.4L486.5 46.5L499.1 32.9L507.4 29.9L514.7 33.8L530.4 28L525.2 38.7L515.8 41.6L502.2 51.4L491.8 49.4L481.3 62.1L473 58.2L467.7 71.8L470.9 82.5Z" data-n="Pollença" data-tp="129" data-car="54"></path>
+<path class="mun" d="M426 162.3L433.3 136L423.9 125.3L435.4 115.6L446.8 112.6L450 122.4L469.8 123.4L474 128.2L464.6 134.1L448.9 161.3L439.5 161.3L431.2 167.1L426 162.3Z" data-n="Sa Pobla" data-tp="96" data-car="44"></path>
+<path class="mun" d="M309 209.9L305.8 186.6L316.3 174.9L321.5 189.5L330.9 202.2L347.6 219.7L342.4 222.6L341.4 239.1L337.2 237.2L327.8 222.6L309 209.9Z" data-n="Santa María del Camí" data-tp="86" data-car="31"></path>
+<path class="mun" d="M462.5 379.2L475 366.6L483.4 369.5L506.4 365.6L508.5 359.8L520 367.6L524.1 359.8L541.9 380.2L534.6 391.9L529.4 388L517.9 405.5L510.6 410.4L499.1 408.4L486.5 419.1L464.6 445.4L454.2 447.4L444.8 432.8L462.5 425L457.3 414.3L468.8 403.6L470.9 388L462.5 379.2Z" data-n="Santanyí" data-tp="108" data-car="53"></path>
+<path class="mun" d="M192 225.5L202.4 212.9L211.8 202.2L222.3 214.8L220.2 223.6L230.6 227.5L241.1 235.2L240 241.1L202.4 250.8L190.9 238.2L192 225.5Z" data-n="Puigpunyent" data-tp="127" data-car="44"></path>
+<path class="mun" d="M358.1 162.3L381 160.3L380 146.7L369.6 130.2L386.3 116.5L396.7 117.5L397.8 128.2L413.4 151.6L412.4 155.5L376.9 171L368.5 171L358.1 162.3Z" data-n="Selva" data-tp="135" data-car="45"></path>
+<path class="mun" d="M462.5 379.2L470.9 388L468.8 403.6L457.3 414.3L462.5 425L444.8 432.8L424.9 411.4L448.9 395.8L462.5 379.2Z" data-n="ses Salines" data-tp="130" data-car="55"></path>
+<path class="mun" d="M354.9 214.8L361.2 209L377.9 212.9L387.3 194.4L397.8 191.5L405.1 201.2L392.5 209L397.8 222.6L410.3 227.5L405.1 237.2L387.3 243L385.2 239.1L367.5 243L360.2 230.4L363.3 226.5L354.9 214.8Z" data-n="Sencelles" data-tp="121" data-car="38"></path>
+<path class="mun" d="M415.5 216.8L420.7 205.1L418.6 198.3L422.8 192.4L447.9 209.9L469.8 211.9L469.8 225.5L460.4 232.3L450 231.4L441.6 240.1L421.8 224.5L415.5 216.8Z" data-n="Sineu" data-tp="101" data-car="45"></path>
+<path class="mun" d="M304.8 111.7L310 121.4L302.7 135L311.1 144.8L316.3 141.8L318.4 147.7L311.1 155.5L295.4 154.5L288.1 165.2L276.6 162.3L280.8 155.5L273.5 141.8L277.6 130.2L286 127.2L292.3 118.5L304.8 111.7Z" data-n="Sóller" data-tp="94" data-car="48"></path>
+<path class="mun" d="M421.8 246.9L423.9 243L441.6 240.1L450 231.4L460.4 232.3L460.4 244L475 257.6L467.7 261.5L467.7 273.2L451 274.2L443.7 257.6L433.3 258.6L434.3 251.8L421.8 246.9Z" data-n="Sant Joan" data-tp="121" data-car="45"></path>
+<path class="mun" d="M542.9 199.2L547.1 195.4L560.7 198.3L569.1 206.1L565.9 213.8L579.5 220.6L596.2 241.1L609.8 245.9L617.1 259.6L604.6 265.4L577.4 257.6L569.1 262.5L559.7 257.6L542.9 225.5L548.2 217.7L542.9 199.2Z" data-n="Sant Llorenç des Cardassar" data-tp="112" data-car="64"></path>
+<path class="mun" d="M341.4 239.1L342.4 222.6L347.6 219.7L354.9 214.8L363.3 226.5L360.2 230.4L367.5 243L356 252.8L345.5 248.9L341.4 239.1Z" data-n="Santa Eugènia" data-tp="114" data-car="32"></path>
+<path class="mun" d="M498 140.9L513.7 151.6L540.9 166.2L535.6 183.7L529.4 194.4L523.1 185.6L516.8 188.5L508.5 191.5L503.3 188.5L495.9 196.3L482.4 199.2L470.9 186.6L463.6 183.7L469.8 173.9L498 140.9Z" data-n="Santa Margalida" data-tp="128" data-car="57"></path>
+<path class="mun" d="M579.5 220.6L580.5 208L588.9 208L599.3 202.2L605.6 207L612.9 202.2L633.8 225.5L616.1 226.5L609.8 245.9L596.2 241.1L579.5 220.6Z" data-n="Son Servera" data-tp="123" data-car="69"></path>
+<path class="mun" d="M469.8 211.9L489.7 210.9L508.5 191.5L516.8 188.5L504.3 215.8L490.7 227.5L480.3 227.5L477.1 220.6L469.8 225.5L469.8 211.9Z" data-n="Ariany" data-tp="155" data-car="54"></path>
+        </g>
+        <g id="negs">
+<circle class="neg bodega operativa" cx="357.5" cy="192.3" r="3.6" data-i="0" data-nombre="Bodega Biniagual" data-loc="Binissalem" data-mun="Binissalem" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="35"></circle>
+<circle class="neg bodega operativa" cx="357.5" cy="192.3" r="3.6" data-i="1" data-nombre="Bodegas José Luis Ferrer" data-loc="Binissalem" data-mun="Binissalem" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="35"></circle>
+<circle class="neg bodega operativa" cx="357.5" cy="192.3" r="3.6" data-i="2" data-nombre="Albaflor - Vins Nadal" data-loc="Binissalem" data-mun="Binissalem" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="35"></circle>
+<circle class="neg bodega operativa" cx="357.5" cy="192.3" r="3.6" data-i="3" data-nombre="Ca'n Verdura Viticultors" data-loc="Binissalem" data-mun="Binissalem" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="35"></circle>
+<circle class="neg bodega operativa" cx="357.5" cy="192.3" r="3.6" data-i="4" data-nombre="Ca'n Fumat" data-loc="Binissalem" data-mun="Binissalem" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="35"></circle>
+<circle class="neg bodega operativa" cx="327.7" cy="217" r="3.6" data-i="5" data-nombre="Jaume de Puntiró" data-loc="Santa Maria del Camí" data-mun="Santa María del Camí" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="31"></circle>
+<circle class="neg bodega operativa" cx="327.7" cy="217" r="3.6" data-i="6" data-nombre="Celler Sebastià Pastor" data-loc="Santa Maria del Camí" data-mun="Santa María del Camí" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="86" data-car="31"></circle>
+<circle class="neg bodega operativa" cx="383.3" cy="217.2" r="3.6" data-i="7" data-nombre="Celler Ca Sa Padrina" data-loc="Sencelles" data-mun="Sencelles" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="121" data-car="38"></circle>
+<circle class="neg bodega operativa" cx="383.3" cy="217.2" r="3.6" data-i="8" data-nombre="Celler Can Ramis" data-loc="Sencelles" data-mun="Sencelles" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="121" data-car="38"></circle>
+<circle class="neg bodega operativa" cx="383.3" cy="217.2" r="3.6" data-i="9" data-nombre="Bodega Santa Catarina" data-loc="Sencelles" data-mun="Sencelles" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="121" data-car="38"></circle>
+<circle class="neg bodega operativa" cx="354.3" cy="230" r="3.6" data-i="10" data-nombre="Vinya Taujana" data-loc="Santa Eugènia" data-mun="Santa Eugènia" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="114" data-car="32"></circle>
+<circle class="neg bodega operativa" cx="499.4" cy="322.2" r="3.6" data-i="11" data-nombre="Armero i Adrover Vinicultors" data-loc="Felanitx" data-mun="Felanitx" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="99" data-car="49"></circle>
+<circle class="neg bodega operativa" cx="380.3" cy="311.6" r="3.6" data-i="12" data-nombre="Bodegas Bordoy" data-loc="Llucmajor" data-mun="Llucmajor" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="73" data-car="30"></circle>
+<circle class="neg bodega operativa" cx="380.3" cy="311.6" r="3.6" data-i="13" data-nombre="Bodegas Vi Rei" data-loc="Llucmajor" data-mun="Llucmajor" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="73" data-car="30"></circle>
+<circle class="neg bodega operativa" cx="457.1" cy="163.3" r="3.6" data-i="14" data-nombre="Butxet viticultors" data-loc="Muro" data-mun="Muro" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="141" data-car="54"></circle>
+<circle class="neg bodega operativa" cx="483.2" cy="237.7" r="3.6" data-i="15" data-nombre="C'an Coleto" data-loc="Petra" data-mun="Petra" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="107" data-car="51"></circle>
+<circle class="neg bodega operativa" cx="379.3" cy="271.5" r="3.6" data-i="16" data-nombre="Can Majoral" data-loc="Algaida" data-mun="Algaida" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="67" data-car="35"></circle>
+<circle class="neg bodega operativa" cx="631.5" cy="184.2" r="3.6" data-i="17" data-nombre="Cas Beato" data-loc="Capdepera" data-mun="Capdepera" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="135" data-car="81"></circle>
+<circle class="neg bodega operativa" cx="495.9" cy="328.2" r="3.6" data-i="18" data-nombre="Es Fangar Vins" data-loc="Felanitx" data-mun="Felanitx" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="99" data-car="49"></circle>
+<circle class="neg bodega operativa" cx="482.6" cy="226.6" r="3.6" data-i="19" data-nombre="Miquel Oliver" data-loc="Petra" data-mun="Petra" data-tipo="bodega" data-estado="operativo" data-nota="cerca de la frontera con Petra (a 158 m)" data-tp="107" data-car="51"></circle>
+<circle class="neg bodega operativa" cx="523.9" cy="264.7" r="3.6" data-i="20" data-nombre="Pere Seda Vinyes i Bodegues" data-loc="Manacor" data-mun="Manacor" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg bodega operativa" cx="528.6" cy="264.1" r="3.6" data-i="21" data-nombre="Vins Toni Gelabert" data-loc="Manacor" data-mun="Manacor" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg bodega operativa" cx="529.3" cy="262.1" r="3.6" data-i="22" data-nombre="Vins Miquel Gelabert" data-loc="Manacor" data-mun="Manacor" data-tipo="bodega" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg agroturismo operativa" cx="384.7" cy="152.8" r="3.6" data-i="23" data-nombre="Can Cota" data-loc="Selva" data-mun="Selva" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="135" data-car="45"></circle>
+<circle class="neg agroturismo operativa" cx="383.6" cy="216.9" r="3.6" data-i="24" data-nombre="Can Grau" data-loc="Sencelles" data-mun="Sencelles" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="121" data-car="38"></circle>
+<circle class="neg agroturismo operativa" cx="469.3" cy="60.3" r="3.6" data-i="25" data-nombre="L'Ullal" data-loc="Port de Pollença" data-mun="Pollença" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="129" data-car="54"></circle>
+<circle class="neg agroturismo operativa" cx="490.9" cy="393.8" r="3.6" data-i="26" data-nombre="Es Pujol" data-loc="Santanyí" data-mun="Santanyí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="108" data-car="53"></circle>
+<circle class="neg agroturismo operativa" cx="500.2" cy="144.7" r="3.6" data-i="27" data-nombre="Casal Santa Eulàlia" data-loc="Ca'n Picafort" data-mun="Santa Margalida" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="128" data-car="57"></circle>
+<circle class="neg agroturismo operativa" cx="528.6" cy="264.1" r="3.6" data-i="28" data-nombre="Es Mayolet" data-loc="Manacor" data-mun="Manacor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg agroturismo operativa" cx="440" cy="347.4" r="3.6" data-i="29" data-nombre="Es Revellar Art Resort" data-loc="Campos" data-mun="Campos" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="86" data-car="36"></circle>
+<circle class="neg agroturismo operativa" cx="428.9" cy="298.7" r="3.6" data-i="30" data-nombre="Es Riquers" data-loc="Porreres" data-mun="Porreres" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="106" data-car="42"></circle>
+<circle class="neg agroturismo operativa" cx="406.1" cy="252.8" r="3.6" data-i="31" data-nombre="Finca Serena" data-loc="Montuïri" data-mun="Montuïri" data-tipo="agroturismo" data-estado="operativo" data-nota="cerca de la frontera con Algaida (a 128 m)" data-tp="68" data-car="40"></circle>
+<circle class="neg agroturismo operativa" cx="563.4" cy="239.4" r="3.6" data-i="32" data-nombre="S'Hort de Sa Begura" data-loc="Sant Llorenç des Cardassar" data-mun="Sant Llorenç des Cardassar" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="112" data-car="64"></circle>
+<circle class="neg agroturismo operativa" cx="440" cy="347.4" r="3.6" data-i="33" data-nombre="Hotel Segles" data-loc="Campos" data-mun="Campos" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="86" data-car="36"></circle>
+<circle class="neg agroturismo operativa" cx="381.7" cy="270.6" r="3.6" data-i="34" data-nombre="Treurer" data-loc="Algaida" data-mun="Algaida" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="67" data-car="35"></circle>
+<circle class="neg agroturismo operativa" cx="563.4" cy="239.4" r="3.6" data-i="35" data-nombre="Son Trobat" data-loc="Sant Llorenç des Cardassar" data-mun="Sant Llorenç des Cardassar" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="112" data-car="64"></circle>
+<circle class="neg agroturismo operativa" cx="255.7" cy="179.1" r="3.6" data-i="36" data-nombre="Marton Valldemossa" data-loc="Valldemossa" data-mun="Valldemossa" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="94" data-car="43"></circle>
+<circle class="neg agroturismo operativa" cx="631.5" cy="184.2" r="3.6" data-i="37" data-nombre="Predi Son Jaumell" data-loc="Capdepera" data-mun="Capdepera" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="135" data-car="81"></circle>
+<circle class="neg agroturismo operativa" cx="500.2" cy="144.7" r="3.6" data-i="38" data-nombre="Predi Son Serra" data-loc="Ca'n Picafort" data-mun="Santa Margalida" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="128" data-car="57"></circle>
+<circle class="neg agroturismo operativa" cx="490.9" cy="393.8" r="3.6" data-i="39" data-nombre="Finca S'Aigo" data-loc="Santanyí" data-mun="Santanyí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="108" data-car="53"></circle>
+<circle class="neg agroturismo operativa" cx="386" cy="142.8" r="3.6" data-i="40" data-nombre="Petit Caimari" data-loc="Caimari" data-mun="Selva" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="135" data-car="45"></circle>
+<circle class="neg agroturismo operativa" cx="455.9" cy="402.9" r="3.6" data-i="41" data-nombre="Sa Carrotja" data-loc="Ses Salines" data-mun="ses Salines" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="130" data-car="55"></circle>
+<circle class="neg agroturismo operativa" cx="440" cy="347.4" r="3.6" data-i="42" data-nombre="Sa Creu Nova" data-loc="Campos" data-mun="Campos" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="86" data-car="36"></circle>
+<circle class="neg agroturismo operativa" cx="537.8" cy="381.4" r="3.6" data-i="43" data-nombre="Finca Sa Tanca" data-loc="Cala D'Or" data-mun="Santanyí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="108" data-car="53"></circle>
+<circle class="neg agroturismo operativa" cx="234.6" cy="204.1" r="3.6" data-i="44" data-nombre="Son Galcerán" data-loc="Esporles" data-mun="Esporles" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="105" data-car="39"></circle>
+<circle class="neg agroturismo operativa" cx="448.5" cy="247.6" r="3.6" data-i="45" data-nombre="Finca Sa Bastida" data-loc="Sant Joan" data-mun="Sant Joan" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="121" data-car="45"></circle>
+<circle class="neg agroturismo operativa" cx="463.5" cy="289.7" r="3.6" data-i="46" data-nombre="Son Roig" data-loc="Porreres" data-mun="Porreres" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="106" data-car="42"></circle>
+<circle class="neg agroturismo operativa" cx="528.6" cy="264.1" r="3.6" data-i="47" data-nombre="Sos Ferres d'en Morey" data-loc="Manacor" data-mun="Manacor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg agroturismo operativa" cx="432.8" cy="185.4" r="3.6" data-i="48" data-nombre="Tofollubi" data-loc="Llubí" data-mun="Llubí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="121" data-car="43"></circle>
+<circle class="neg agroturismo operativa" cx="438.1" cy="77.7" r="3.6" data-i="49" data-nombre="Almond Valley" data-loc="Pollença" data-mun="Pollença" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="129" data-car="54"></circle>
+<circle class="neg agroturismo proxima" cx="441.4" cy="295.9" r="3" data-i="50" data-nombre="Starbal Mallorca" data-loc="Porreres" data-mun="Porreres" data-tipo="agroturismo" data-estado="proxima_apertura" data-nota="" data-tp="106" data-car="42"></circle>
+<circle class="neg agroturismo operativa" cx="453.8" cy="211.2" r="3.6" data-i="51" data-nombre="Son Fogueró" data-loc="María de la Salut" data-mun="Maria de la Salut" data-tipo="agroturismo" data-estado="operativo" data-nota="cerca de la frontera con Maria de la Salut (a 138 m)" data-tp="145" data-car="51"></circle>
+<circle class="neg agroturismo operativa" cx="442.3" cy="143.6" r="3.6" data-i="52" data-nombre="Finca Son Cladera" data-loc="Sa Pobla" data-mun="Sa Pobla" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="96" data-car="44"></circle>
+<circle class="neg agroturismo operativa" cx="189.8" cy="213.6" r="3.6" data-i="53" data-nombre="Hotel & Spa Maristel" data-loc="Estellencs" data-mun="Estellencs" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="137" data-car="64"></circle>
+<circle class="neg agroturismo operativa" cx="308.2" cy="229.7" r="3.6" data-i="54" data-nombre="S'Hort de Son Caulelles" data-loc="Marratxí" data-mun="Marratxí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="80" data-car="24"></circle>
+<circle class="neg agroturismo operativa" cx="298.5" cy="145.7" r="3.6" data-i="55" data-nombre="Can Guixa Sóller" data-loc="Sóller" data-mun="Sóller" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="94" data-car="48"></circle>
+<circle class="neg agroturismo operativa" cx="384.7" cy="152.8" r="3.6" data-i="56" data-nombre="Angels Boutique" data-loc="Selva" data-mun="Selva" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="135" data-car="45"></circle>
+<circle class="neg agroturismo operativa" cx="357.5" cy="192.3" r="3.6" data-i="57" data-nombre="Es Quatre Cantons" data-loc="Binissalem" data-mun="Binissalem" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="86" data-car="35"></circle>
+<circle class="neg agroturismo operativa" cx="547.6" cy="309.1" r="3.6" data-i="58" data-nombre="Es Rafal Nou" data-loc="Manacor" data-mun="Manacor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg agroturismo operativa" cx="528.6" cy="264.1" r="3.6" data-i="59" data-nombre="Es Rafal Podent" data-loc="Manacor" data-mun="Manacor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg agroturismo operativa" cx="267.5" cy="156.9" r="3.6" data-i="60" data-nombre="Corazón" data-loc="Deià" data-mun="Deià" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="115" data-car="54"></circle>
+<circle class="neg agroturismo operativa" cx="528.6" cy="264.1" r="3.6" data-i="61" data-nombre="Finca Son Josep de Baix" data-loc="Manacor" data-mun="Manacor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="87" data-car="58"></circle>
+<circle class="neg agroturismo operativa" cx="394.2" cy="221.1" r="3.6" data-i="62" data-nombre="Can Florit" data-loc="Sencelles" data-mun="Sencelles" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="121" data-car="38"></circle>
+<circle class="neg agroturismo operativa" cx="499.4" cy="322.2" r="3.6" data-i="63" data-nombre="Son Capellot" data-loc="Felanitx" data-mun="Felanitx" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="99" data-car="49"></circle>
+<circle class="neg agroturismo operativa" cx="432.8" cy="185.4" r="3.6" data-i="64" data-nombre="Vista de la Vila" data-loc="Llubí" data-mun="Llubí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="121" data-car="43"></circle>
+<circle class="neg agroturismo operativa" cx="478.5" cy="183.6" r="3.6" data-i="65" data-nombre="Finca Son Flor" data-loc="Santa Margalida" data-mun="Santa Margalida" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="128" data-car="57"></circle>
+<circle class="neg agroturismo operativa" cx="319.2" cy="164.9" r="3.6" data-i="66" data-nombre="S'Olivaret" data-loc="Orient" data-mun="Bunyola" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="89" data-car="34"></circle>
+<circle class="neg agroturismo operativa" cx="161.5" cy="261.1" r="3.6" data-i="67" data-nombre="Unic Mallorca" data-loc="Andratx" data-mun="Andratx" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="110" data-car="41"></circle>
+<circle class="neg agroturismo operativa" cx="440" cy="347.4" r="3.6" data-i="68" data-nombre="Es Gallicant" data-loc="Campos" data-mun="Campos" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="86" data-car="36"></circle>
+<circle class="neg agroturismo operativa" cx="255.7" cy="179.1" r="3.6" data-i="69" data-nombre="Son Viscos" data-loc="Valldemossa" data-mun="Valldemossa" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="94" data-car="43"></circle>
+<circle class="neg agroturismo operativa" cx="129.8" cy="258.4" r="3.6" data-i="70" data-nombre="Es Tomeu" data-loc="Sant Elm" data-mun="Andratx" data-tipo="agroturismo" data-estado="operativo" data-nota="asignado por proximidad de costa (fuera del poligono estricto por 95 m)" data-tp="110" data-car="41"></circle>
+<circle class="neg agroturismo operativa" cx="440" cy="347.4" r="3.6" data-i="71" data-nombre="Migjorn" data-loc="Campos" data-mun="Campos" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="86" data-car="36"></circle>
+<circle class="neg agroturismo operativa" cx="380.3" cy="311.6" r="3.6" data-i="72" data-nombre="Sa Bassa Plana" data-loc="Llucmajor" data-mun="Llucmajor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="73" data-car="30"></circle>
+<circle class="neg agroturismo operativa" cx="255.7" cy="179.1" r="3.6" data-i="73" data-nombre="Es Petit Valldemossa" data-loc="Valldemossa" data-mun="Valldemossa" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="94" data-car="43"></circle>
+<circle class="neg agroturismo operativa" cx="298.5" cy="145.7" r="3.6" data-i="74" data-nombre="Can Moragues" data-loc="Sóller" data-mun="Sóller" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="94" data-car="48"></circle>
+<circle class="neg agroturismo operativa" cx="525.5" cy="365.8" r="3.6" data-i="75" data-nombre="Petit Hotel Sant Miquel" data-loc="Calonge" data-mun="Santanyí" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="108" data-car="53"></circle>
+<circle class="neg agroturismo operativa" cx="268.3" cy="264.2" r="3.6" data-i="76" data-nombre="Agroturisme Son Mir" data-loc="Palma de Mallorca" data-mun="Palma" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="42" data-car="27"></circle>
+<circle class="neg agroturismo operativa" cx="389.5" cy="172.9" r="3.6" data-i="77" data-nombre="Can Guixe" data-loc="Inca" data-mun="Inca" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="80" data-car="39"></circle>
+<circle class="neg agroturismo operativa" cx="333.6" cy="181.9" r="3.6" data-i="78" data-nombre="Can Sec" data-loc="Alaró" data-mun="Alaró" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="120" data-car="38"></circle>
+<circle class="neg agroturismo operativa" cx="380.3" cy="311.6" r="3.6" data-i="79" data-nombre="Puig de Ros D'Alt" data-loc="Llucmajor" data-mun="Llucmajor" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="73" data-car="30"></circle>
+<circle class="neg agroturismo operativa" cx="499.4" cy="322.2" r="3.6" data-i="80" data-nombre="Son Menut" data-loc="Felanitx" data-mun="Felanitx" data-tipo="agroturismo" data-estado="operativo" data-nota="" data-tp="99" data-car="49"></circle>
+<circle class="neg gastronomia operativa" cx="579.6" cy="254.1" r="3.6" data-i="81" data-nombre="Restaurant Alma - Cas Patró" data-loc="Son Carrió" data-mun="Sant Llorenç des Cardassar" data-tipo="gastronomia" data-estado="operativo" data-nota="" data-tp="112" data-car="64"></circle>
+<circle class="neg gastronomia operativa" cx="298.5" cy="145.7" r="3.6" data-i="82" data-nombre="Fet a Sóller" data-loc="Sóller" data-mun="Sóller" data-tipo="gastronomia" data-estado="operativo" data-nota="" data-tp="94" data-car="48"></circle>
+        </g>
+        <circle class="ap" cx="309.5" cy="274.9" r="5"></circle>
+        <rect class="aplbl-bg" x="250.5" y="282.9" width="118" height="15" rx="3"></rect>
+        <text class="aplbl" x="309.5" y="293.4">Aeropuerto de Palma</text>
+        
+      </svg>
+      <div class="legend">
+        <div class="key"><div class="sw" style="background:#36A7B7"></div>Alcanzable</div>
+        <div class="key"><div class="sw" style="background:#C9D3DA"></div>Fuera de alcance</div>
+        <div class="key"><div class="sw" style="background:#7B3F8F"></div>Bodegas</div>
+        <div class="key"><div class="sw" style="background:#B8860B"></div>Agroturismos</div>
+        <div class="key"><div class="sw" style="background:#2F8F5B"></div>Gastronomía</div>
+        <div class="key"><div class="sw" style="background:#fff;border:1.5px dashed #002B49"></div>Próxima apertura</div>
+        <div class="key"><div class="sw" style="background:#E31B23;border-radius:50%"></div>Origen</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="ctl">
+      <div class="lbl">CÓMO TE MUEVES</div>
+      <div class="seg" id="mode">
+        <button data-m="tp" class="on">Transporte público</button>
+        <button data-m="car">Coche</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <div class="lbl">TIEMPO MÁXIMO DE VIAJE</div>
+      <div class="seg" id="thr">
+        <button data-t="60">60 min</button>
+        <button data-t="90" class="on">90 min</button>
+        <button data-t="120">120 min</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <div class="lbl">ECONOMÍA DE INTERIOR</div>
+      <label class="chk"><input type="checkbox" id="tBodega" checked> Bodegas (23)</label>
+      <label class="chk"><input type="checkbox" id="tAgro" checked> Agroturismos (57)</label>
+      <label class="chk"><input type="checkbox" id="tGastro" checked> Gastronomía (2)</label>
+      <label class="chk"><input type="checkbox" id="tProxima" checked> Incluir "próxima apertura" (1)</label>
+    </div>
+    <hr style="border:0;border-top:1px solid #E2E8F0;margin:14px 0">
+    <div class="stat teal"><div class="big" id="s1">-</div><div class="cap">municipios alcanzables<br>de 53 en Mallorca</div></div>
+    <div class="stat"><div class="big" id="s2">-</div><div class="cap">municipios sin conexión útil</div></div>
+    <div class="stat"><div class="big" id="s3">-</div><div class="cap">negocios visibles<br>fuera de alcance (de 83)</div></div>
+  </div>
+</div>
+
+<div class="foot">
+  <b>Fuentes.</b> Geometría municipal: <b>Instituto Geográfico Nacional (IGN)</b> vía es-atlas — 53 municipios de Mallorca (dato real).
+  Origen: aeropuerto de Son Sant Joan, terminal de pasajeros, 39,551667 / 2,738889 (dato real).
+  <b>Tiempos de viaje: GTFS oficial TIB + EMT Palma (CC-BY 4.0) + OpenStreetMap, motor R5 via r5py.</b> 
+  <b>Capa de negocios: 83 establecimientos geocodificados</b> (Nominatim/OpenStreetMap), asignados a su municipio oficial por contención geométrica real contra el IGN, con reparación de polígonos inválidos y tolerancia documentada para desajustes de línea de costa. En 2 casos la geometría estricta entraba en conflicto con el código postal oficial de la dirección (evidencia más fuerte): se corrigieron con nota explícita, nunca en silencio. Fuentes: C.R. D.O. Binissalem, D.O. Pla i Llevant, ABATI (Associació Balear d'Agroturisme). 
+  <b>Nota sobre Sóller:</b> el histórico Ferrocarril de Sóller es una empresa privada (Ferrocarril de Sóller S.A.),
+  ajena a la red pública TIB y sin billete integrado; el tiempo mostrado a Sóller usa el transporte público
+  regular (autobús por el túnel), no el tren turístico de madera.
+  <b>Cabrera</b> (archipiélago, parque nacional) pertenece administrativamente al municipio de Palma pero se ha
+  recortado del dibujo: no tiene transporte público regular ni negocios de interior que mostrar.
+  Metodología publicable y replicable por terceros.
+  <br><b>LLYC para ANEVAL/BALEVAL — Documento de trabajo interno.</b>
+</div>
+</div>
+
+<div class="tip" id="tip"></div>
+<script>
+(function(){
+  var mode='tp', thr=90, TOTAL=53;
+  var muns=[].slice.call(document.querySelectorAll('.mun'));
+  var negs=[].slice.call(document.querySelectorAll('.neg'));
+  var tip=document.getElementById('tip');
+  var carOf={}; muns.forEach(function(p){carOf[p.getAttribute('data-n')]=+p.getAttribute('data-car');});
+
+  var showBodega=true, showAgro=true, showGastro=true, showProxima=true;
+
+  function tipoVisible(tipo){
+    if(tipo==='bodega') return showBodega;
+    if(tipo==='agroturismo') return showAgro;
+    if(tipo==='gastronomia') return showGastro;
+    return true;
+  }
+
+  function render(){
+    var ok=0;
+    muns.forEach(function(p){
+      var v=+p.getAttribute(mode==='tp'?'data-tp':'data-car');
+      var good=v<=thr;
+      p.classList.toggle('ok',good); p.classList.toggle('no',!good);
+      if(good) ok++;
+    });
+    var out=0, visibles=0;
+    negs.forEach(function(c){
+      var esProxima = c.getAttribute('data-estado')==='proxima_apertura';
+      var tipo = c.getAttribute('data-tipo');
+      var visible = tipoVisible(tipo) && (!esProxima || showProxima);
+      c.classList.toggle('hide', !visible);
+      if(!visible) return;
+      visibles++;
+      var val=(mode==='tp')? +c.getAttribute('data-tp') : carOf[c.getAttribute('data-mun')];
+      if(val===undefined || isNaN(val)) val = +c.getAttribute(mode==='tp'?'data-tp':'data-car');
+      if(val>thr) out++;
+    });
+    document.getElementById('s1').textContent=ok;
+    document.getElementById('s2').textContent=TOTAL-ok;
+    document.getElementById('s3').textContent=out;
+  }
+
+  document.getElementById('mode').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    mode=b.getAttribute('data-m');
+    [].slice.call(this.children).forEach(function(x){x.classList.toggle('on',x===b);});
+    render();
+  });
+  document.getElementById('thr').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    thr=+b.getAttribute('data-t');
+    [].slice.call(this.children).forEach(function(x){x.classList.toggle('on',x===b);});
+    render();
+  });
+  document.getElementById('tBodega').addEventListener('change',function(){showBodega=this.checked;render();});
+  document.getElementById('tAgro').addEventListener('change',function(){showAgro=this.checked;render();});
+  document.getElementById('tGastro').addEventListener('change',function(){showGastro=this.checked;render();});
+  document.getElementById('tProxima').addEventListener('change',function(){showProxima=this.checked;render();});
+
+  muns.forEach(function(p){
+    p.addEventListener('mousemove',function(e){
+      var tp=+p.getAttribute('data-tp'), car=p.getAttribute('data-car');
+      tip.innerHTML='<b>'+p.getAttribute('data-n')+'</b><br>Transporte público: '+(tp>=999?'sin servicio útil':tp+' min')
+        +'<br>Coche: '+car+' min';
+      tip.style.left=(e.clientX+13)+'px'; tip.style.top=(e.clientY+13)+'px'; tip.style.opacity=1;
+    });
+    p.addEventListener('mouseleave',function(){tip.style.opacity=0;});
+  });
+
+  var TIPO_LABEL={bodega:'Bodega',agroturismo:'Agroturismo',gastronomia:'Gastronomía'};
+  negs.forEach(function(c){
+    c.addEventListener('mousemove',function(e){
+      var tipoLbl = TIPO_LABEL[c.getAttribute('data-tipo')] || c.getAttribute('data-tipo');
+      var estado = c.getAttribute('data-estado')==='proxima_apertura' ? ' · próxima apertura' : '';
+      var nota = c.getAttribute('data-nota');
+      tip.innerHTML = '<b>'+c.getAttribute('data-nombre')+'</b> ('+tipoLbl+estado+')'
+        + '<br>'+c.getAttribute('data-loc')+' · municipio: '+c.getAttribute('data-mun')
+        + (nota ? '<br><i style="color:#FFD27A">'+nota+'</i>' : '');
+      tip.style.left=(e.clientX+13)+'px'; tip.style.top=(e.clientY+13)+'px'; tip.style.opacity=1;
+      e.stopPropagation();
+    });
+    c.addEventListener('mouseleave',function(){tip.style.opacity=0;});
+  });
+
+  render();
+})();
+</script>
+</body></html>

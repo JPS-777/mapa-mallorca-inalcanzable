@@ -1,0 +1,446 @@
+{
+ "struct::Binissalem": {
+  "lat": 39.6889279,
+  "lon": 2.8420532,
+  "display_name": "Binissalem, Raiguer, Illes Balears, 07350, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Santa Maria del Camí": {
+  "lat": 39.6479453,
+  "lon": 2.7779083,
+  "display_name": "Santa Maria del Camí, Raiguer, Illes Balears, 07320, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Sencelles": {
+  "lat": 39.6475972,
+  "lon": 2.8977427,
+  "display_name": "Sencelles, Pla de Mallorca, Illes Balears, 07140, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Vinya Taujana, Santa Eugènia, Mallorca, Spain": {
+  "lat": 39.626255,
+  "lon": 2.8352225,
+  "display_name": "Vinya Taujana, carrer de la Balanguera, ses Coves, Santa Eugènia, Pla de Mallorca, Illes Balears, 07142, España",
+  "osm_class": "shop",
+  "osm_type": "wine"
+ },
+ "struct::Felanitx": {
+  "lat": 39.4731713,
+  "lon": 3.1476769,
+  "display_name": "Felanitx, Migjorn, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Llucmajor": {
+  "lat": 39.490845,
+  "lon": 2.8913179,
+  "display_name": "Llucmajor, Migjorn, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Muro": {
+  "lat": 39.7370637,
+  "lon": 3.0567069,
+  "display_name": "Muro, Pla de Mallorca, Illes Balears, 07440, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Petra": {
+  "lat": 39.6134574,
+  "lon": 3.1128071,
+  "display_name": "Petra, Pla de Mallorca, Illes Balears, 07520, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Can Majoral, Algaida, Mallorca, Spain": {
+  "lat": 39.5573469,
+  "lon": 2.8891241,
+  "display_name": "Can Majoral, Carreró des Campanar, Algaida, Pla de Mallorca, Illes Balears, 07210, España",
+  "osm_class": "shop",
+  "osm_type": "wine"
+ },
+ "struct::Capdepera": {
+  "lat": 39.7023418,
+  "lon": 3.4321679,
+  "display_name": "Capdepera, Llevant, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::C/ Son Colom 23 (Pol. Ind. Son Colom), 07200 Felanitx, Illes Balears, Spain": {
+  "lat": 39.463272,
+  "lon": 3.1401467,
+  "display_name": "carrer de Son Cerdà, Polígon industrial de Son Colom, Felanitx, Migjorn, Illes Balears, 07200, España",
+  "osm_class": "highway",
+  "osm_type": "residential"
+ },
+ "libre::Miquel Oliver, Petra, Mallorca, Spain": {
+  "lat": 39.6319505,
+  "lon": 3.1115565,
+  "display_name": "Miquel Oliver, camí de Petra, Ariany, Pla de Mallorca, Illes Balears, 07529, España",
+  "osm_class": "building",
+  "osm_type": "house"
+ },
+ "dir::C/ Cid Campeador 22, 07500 Manacor, Illes Balears, Spain": {
+  "lat": 39.568641,
+  "lon": 3.2003597,
+  "display_name": "Pere Seda - Viyes i Bodegas, 22, carrer del Cid Campeador, sa Torre, Manacor, Llevant, Illes Balears, 07199, España",
+  "osm_class": "shop",
+  "osm_type": "beverages"
+ },
+ "struct::Selva": {
+  "lat": 39.7544816,
+  "lon": 2.9007178,
+  "display_name": "Selva, Raiguer, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Can Grau, Sencelles, Mallorca, Spain": {
+  "lat": 39.6479815,
+  "lon": 2.8984301,
+  "display_name": "Can Grau, carrer d'Antoni Maura, Centre, Sencelles, Pla de Mallorca, Illes Balears, 07140, España",
+  "osm_class": "amenity",
+  "osm_type": "community_centre"
+ },
+ "struct::Port de Pollença": {
+  "lat": 39.908013,
+  "lon": 3.0827842,
+  "display_name": "Port de Pollença, Pollença, Serra de Tramuntana, Illes Balears, 07470, España",
+  "osm_class": "place",
+  "osm_type": "village"
+ },
+ "struct::Santanyí": {
+  "lat": 39.3543115,
+  "lon": 3.1294799,
+  "display_name": "Santanyí, Migjorn, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Ca'n Picafort": {
+  "lat": 39.76802,
+  "lon": 3.1493162,
+  "display_name": "Ca'n Picafort, Santa Margalida, Pla de Mallorca, Illes Balears, 07450, España",
+  "osm_class": "place",
+  "osm_type": "town"
+ },
+ "struct::Campos": {
+  "lat": 39.4313098,
+  "lon": 3.0197912,
+  "display_name": "Campos, Migjorn, Illes Balears, 07630, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Es Riquers, Porreres, Mallorca, Spain": {
+  "lat": 39.5122484,
+  "lon": 2.9958295,
+  "display_name": "es Riquers, Porreres, Pla de Mallorca, Illes Balears, 07260, España",
+  "osm_class": "place",
+  "osm_type": "locality"
+ },
+ "libre::Finca Serena, Montuïri, Mallorca, Spain": {
+  "lat": 39.5884696,
+  "lon": 2.9469023,
+  "display_name": "Hotel Finca Serena, 3, Ma-3200, Na Païssa, Montuïri, Pla de Mallorca, Illes Balears, 07230, España",
+  "osm_class": "tourism",
+  "osm_type": "hotel"
+ },
+ "struct::Sant Llorenç des Cardassar": {
+  "lat": 39.6106866,
+  "lon": 3.285451,
+  "display_name": "Sant Llorenç des Cardassar, Llevant, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Algaida": {
+  "lat": 39.5589416,
+  "lon": 2.8943429,
+  "display_name": "Algaida, Pla de Mallorca, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Valldemossa": {
+  "lat": 39.7108465,
+  "lon": 2.6230264,
+  "display_name": "Valldemossa, Serra de Tramuntana, Illes Balears, 07170, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Caimari": {
+  "lat": 39.7711008,
+  "lon": 2.9034496,
+  "display_name": "Caimari, Selva, Raiguer, Illes Balears, 07314, España",
+  "osm_class": "place",
+  "osm_type": "village"
+ },
+ "struct::Ses Salines": {
+  "lat": 39.3391978,
+  "lon": 3.054137,
+  "display_name": "ses Salines, Migjorn, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Cala D'Or": {
+  "lat": 39.3748968,
+  "lon": 3.2302905,
+  "display_name": "Cala d'Or, Santanyí, Migjorn, Illes Balears, 07660, España",
+  "osm_class": "place",
+  "osm_type": "village"
+ },
+ "struct::Esporles": {
+  "lat": 39.6692405,
+  "lon": 2.5775624,
+  "display_name": "Esporles, Serra de Tramuntana, Illes Balears, 07190, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Sant Joan": {
+  "lat": 39.5971435,
+  "lon": 3.0379931,
+  "display_name": "Sant Joan, Pla de Mallorca, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Son Roig, Porreres, Mallorca, Spain": {
+  "lat": 39.5271635,
+  "lon": 3.0704856,
+  "display_name": "Finca Son Roig Agroturismo, camí de sa Torre, Porreres, Pla de Mallorca, Illes Balears, 07260, España",
+  "osm_class": "tourism",
+  "osm_type": "hotel"
+ },
+ "struct::Llubí": {
+  "lat": 39.7003358,
+  "lon": 3.0042475,
+  "display_name": "Llubí, Pla de Mallorca, Illes Balears, 07430, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Pollença": {
+  "lat": 39.8792073,
+  "lon": 3.0157098,
+  "display_name": "Pollença, Serra de Tramuntana, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Porreres": {
+  "lat": 39.5168891,
+  "lon": 3.0227517,
+  "display_name": "Porreres, Pla de Mallorca, Illes Balears, 07260, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Son Fogueró, María de la Salut, Mallorca, Spain": {
+  "lat": 39.6574998,
+  "lon": 3.0494076,
+  "display_name": "Son Fogueró, Maria de la Salut, Pla de Mallorca, Illes Balears, 07519, España",
+  "osm_class": "place",
+  "osm_type": "locality"
+ },
+ "struct::Sa Pobla": {
+  "lat": 39.7697409,
+  "lon": 3.0246803,
+  "display_name": "sa Pobla, Raiguer, Illes Balears, 07420, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Estellencs": {
+  "lat": 39.6535102,
+  "lon": 2.4810336,
+  "display_name": "Estellencs, Serra de Tramuntana, Illes Balears, 07192, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Marratxí": {
+  "lat": 39.6268438,
+  "lon": 2.7359332,
+  "display_name": "Marratxí, Raiguer, Illes Balears, 07141, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Sóller": {
+  "lat": 39.7663047,
+  "lon": 2.7150538,
+  "display_name": "Sóller, Serra de Tramuntana, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Es Rafal Nou, Manacor, Mallorca, Spain": {
+  "lat": 39.4950019,
+  "lon": 3.2514608,
+  "display_name": "es Rafal nou, carretera de Son Macià a Cales de Mallorca, Manacor, Llevant, Illes Balears, 07509, España",
+  "osm_class": "building",
+  "osm_type": "yes"
+ },
+ "struct::Deià": {
+  "lat": 39.7477362,
+  "lon": 2.6483432,
+  "display_name": "Deià, Serra de Tramuntana, Illes Balears, 07179, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "libre::Can Florit, Sencelles, Mallorca, Spain": {
+  "lat": 39.6411303,
+  "lon": 2.9211771,
+  "display_name": "Can Florit, Cascanar, Sencelles, Pla de Mallorca, Illes Balears, 07144, España",
+  "osm_class": "place",
+  "osm_type": "locality"
+ },
+ "struct::Santa Margalida": {
+  "lat": 39.7033676,
+  "lon": 3.1026602,
+  "display_name": "Santa Margalida, Pla de Mallorca, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Orient": {
+  "lat": 39.7343851,
+  "lon": 2.7597669,
+  "display_name": "Orient, Bunyola, Serra de Tramuntana, Illes Balears, 07101, España",
+  "osm_class": "place",
+  "osm_type": "hamlet"
+ },
+ "struct::Andratx": {
+  "lat": 39.5745956,
+  "lon": 2.4202061,
+  "display_name": "Andratx, Serra de Tramuntana, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Sant Elm": {
+  "lat": 39.5790712,
+  "lon": 2.3518349,
+  "display_name": "Sant Elm, Andratx, Serra de Tramuntana, Illes Balears, 07159, España",
+  "osm_class": "place",
+  "osm_type": "village"
+ },
+ "struct::Calonge": {
+  "lat": 39.4007378,
+  "lon": 3.2039972,
+  "display_name": "Calonge, Santanyí, Migjorn, Illes Balears, 07669, España",
+  "osm_class": "place",
+  "osm_type": "village"
+ },
+ "struct::Palma de Mallorca": {
+  "lat": 39.5695818,
+  "lon": 2.6500745,
+  "display_name": "Palma, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Inca": {
+  "lat": 39.7211448,
+  "lon": 2.9111493,
+  "display_name": "Inca, Raiguer, Illes Balears, 07300, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Alaró": {
+  "lat": 39.7061528,
+  "lon": 2.7907216,
+  "display_name": "Alaró, Raiguer, Illes Balears, 07340, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "struct::Son Carrió": {
+  "lat": 39.5863457,
+  "lon": 3.3203302,
+  "display_name": "Son Carrió, Sant Llorenç des Cardassar, Llevant, Illes Balears, 07530, España",
+  "osm_class": "place",
+  "osm_type": "hamlet"
+ },
+ "libre::Bodega Biniagual, Binissalem, Mallorca, Spain": null,
+ "libre::Bodegas José Luis Ferrer, Binissalem, Mallorca, Spain": null,
+ "libre::Ca'n Verdura Viticultors, Binissalem, Mallorca, Spain": null,
+ "libre::Ca'n Fumat, Binissalem, Mallorca, Spain": null,
+ "libre::Jaume de Puntiró, Santa Maria del Camí, Mallorca, Spain": null,
+ "libre::Celler Sebastià Pastor, Santa Maria del Camí, Mallorca, Spain": null,
+ "libre::Celler Ca Sa Padrina, Sencelles, Mallorca, Spain": null,
+ "libre::Celler Can Ramis, Sencelles, Mallorca, Spain": null,
+ "libre::Bodega Santa Catarina, Sencelles, Mallorca, Spain": null,
+ "dir::Camada Real s/n, 07200 Felanitx, Illes Balears, Spain": null,
+ "libre::Armero i Adrover Vinicultors, Felanitx, Mallorca, Spain": null,
+ "dir::Camí de muntanya s/n (Camí de Sa Torre), 07620 Llucmajor, Illes Balears, Spain": null,
+ "libre::Bodegas Bordoy, Llucmajor, Mallorca, Spain": null,
+ "dir::CR Cabo Blanco km 25,4, 07620 Llucmajor, Illes Balears, Spain": null,
+ "libre::Bodegas Vi Rei, Llucmajor, Mallorca, Spain": null,
+ "dir::C/ Bisbe Albertí 10, 07440 Muro, Illes Balears, Spain": null,
+ "libre::Butxet viticultors, Muro, Mallorca, Spain": null,
+ "dir::Camí de Son Reixach, 07520 Petra, Illes Balears, Spain": null,
+ "libre::C'an Coleto, Petra, Mallorca, Spain": null,
+ "dir::Carrer des Campanar s/n, 07210 Algaida, Illes Balears, Spain": null,
+ "dir::Travessia Baltasar Covas s/n, 07580 Capdepera, Illes Balears, Spain": null,
+ "libre::Cas Beato, Capdepera, Mallorca, Spain": null,
+ "dir::Ctra Petra-Sta Margalida KM 1.8, 07520 Petra, Illes Balears, Spain": null,
+ "dir::Ctra Manacor-Felanitx, Camí de Son Fangos, 07500 Manacor, Illes Balears, Spain": null,
+ "libre::Vins Toni Gelabert, Manacor, Mallorca, Spain": null,
+ "struct::Manacor": {
+  "lat": 39.5696458,
+  "lon": 3.2106461,
+  "display_name": "Manacor, Llevant, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::C/ Sales 50, 07500 Manacor, Illes Balears, Spain": {
+  "lat": 39.5729867,
+  "lon": 3.212056,
+  "display_name": "50, carrer d'en Sales, es Barracar, Manacor, Llevant, Illes Balears, 07500, España",
+  "osm_class": "place",
+  "osm_type": "house"
+ },
+ "libre::Can Cota, Selva, Mallorca, Spain": null,
+ "libre::L'Ullal, Port de Pollença, Mallorca, Spain": null,
+ "libre::Es Pujol, Santanyí, Mallorca, Spain": null,
+ "libre::Casal Santa Eulàlia, Ca'n Picafort, Mallorca, Spain": null,
+ "libre::Es Mayolet, Manacor, Mallorca, Spain": null,
+ "libre::Es Revellar Art Resort, Campos, Mallorca, Spain": null,
+ "libre::S'Hort de Sa Begura, Sant Llorenç des Cardassar, Mallorca, Spain": null,
+ "libre::Hotel Segles, Campos, Mallorca, Spain": null,
+ "libre::Treurer, Algaida, Mallorca, Spain": null,
+ "libre::Son Trobat, Sant Llorenç des Cardassar, Mallorca, Spain": null,
+ "libre::Marton Valldemossa, Valldemossa, Mallorca, Spain": null,
+ "libre::Predi Son Jaumell, Capdepera, Mallorca, Spain": null,
+ "libre::Predi Son Serra, Ca'n Picafort, Mallorca, Spain": null,
+ "libre::Finca S'Aigo, Santanyí, Mallorca, Spain": null,
+ "libre::Petit Caimari, Caimari, Mallorca, Spain": null,
+ "libre::Sa Carrotja, Ses Salines, Mallorca, Spain": null,
+ "libre::Sa Creu Nova, Campos, Mallorca, Spain": null,
+ "libre::Finca Sa Tanca, Cala D'Or, Mallorca, Spain": null,
+ "libre::Son Galcerán, Esporles, Mallorca, Spain": null,
+ "libre::Finca Sa Bastida, Sant Joan, Mallorca, Spain": null,
+ "libre::Sos Ferres d'en Morey, Manacor, Mallorca, Spain": null,
+ "libre::Tofollubi, Llubí, Mallorca, Spain": null,
+ "libre::Almond Valley, Pollença, Mallorca, Spain": null,
+ "libre::Starbal Mallorca, Porreres, Mallorca, Spain": null,
+ "libre::Finca Son Cladera, Sa Pobla, Mallorca, Spain": null,
+ "libre::Hotel & Spa Maristel, Estellencs, Mallorca, Spain": null,
+ "libre::S'Hort de Son Caulelles, Marratxí, Mallorca, Spain": null,
+ "libre::Can Guixa Sóller, Sóller, Mallorca, Spain": null,
+ "libre::Angels Boutique, Selva, Mallorca, Spain": null,
+ "libre::Es Quatre Cantons, Binissalem, Mallorca, Spain": null,
+ "libre::Es Rafal Podent, Manacor, Mallorca, Spain": null,
+ "libre::Corazón, Deià, Mallorca, Spain": null,
+ "libre::Finca Son Josep de Baix, Manacor, Mallorca, Spain": null,
+ "libre::Son Capellot, Felanitx, Mallorca, Spain": null,
+ "libre::Vista de la Vila, Llubí, Mallorca, Spain": null,
+ "libre::Finca Son Flor, Santa Margalida, Mallorca, Spain": null,
+ "libre::S'Olivaret, Orient, Mallorca, Spain": null,
+ "libre::Unic Mallorca, Andratx, Mallorca, Spain": null,
+ "libre::Es Gallicant, Campos, Mallorca, Spain": null,
+ "libre::Son Viscos, Valldemossa, Mallorca, Spain": null,
+ "libre::Es Tomeu, Sant Elm, Mallorca, Spain": null,
+ "libre::Migjorn, Campos, Mallorca, Spain": null,
+ "libre::Sa Bassa Plana, Llucmajor, Mallorca, Spain": null,
+ "libre::Es Petit Valldemossa, Valldemossa, Mallorca, Spain": null,
+ "libre::Can Moragues, Sóller, Mallorca, Spain": null,
+ "libre::Petit Hotel Sant Miquel, Calonge, Mallorca, Spain": null,
+ "libre::Agroturisme Son Mir, Palma de Mallorca, Mallorca, Spain": null,
+ "libre::Can Guixe, Inca, Mallorca, Spain": null,
+ "libre::Can Sec, Alaró, Mallorca, Spain": null,
+ "libre::Puig de Ros D'Alt, Llucmajor, Mallorca, Spain": null,
+ "libre::Son Menut, Felanitx, Mallorca, Spain": null,
+ "dir::Calle Major 13, Son Carrió, Illes Balears, Spain": null,
+ "libre::Restaurant Alma - Cas Patró, Son Carrió, Mallorca, Spain": null,
+ "libre::Fet a Sóller, Sóller, Mallorca, Spain": null,
+ "libre::Albaflor - Vins Nadal, Binissalem, Mallorca, Spain": null
+}

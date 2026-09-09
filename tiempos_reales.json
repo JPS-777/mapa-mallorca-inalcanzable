@@ -1,0 +1,230 @@
+{
+ "meta": {
+  "fuente": "GTFS oficial TIB + EMT Palma (CC-BY 4.0) + OpenStreetMap, motor R5 via r5py",
+  "origen": "Aeropuerto de Palma (Son Sant Joan), 39.551667 / 2.738889",
+  "momento": "2026-08-05 10:00:00 (miercoles, temporada alta)",
+  "ventana_min": 120,
+  "ventana_min_nota": "Ampliada de 60 a 120 min en v5: una ventana de 60 min resultaba inestable frente a lineas de baja frecuencia con huecos de hasta 90 min (ej. linea 304 Inca-Sencelles-Palma). Cambio aplicado por igual a los 53 municipios.",
+  "percentil": "mediana (p50) de la ventana de salida",
+  "max_caminata_min": 20,
+  "velocidad_andando_kmh": 4.5,
+  "destino_por_municipio": "nucleo urbano real (nodo place de OpenStreetMap); ver auditoria_puntos.csv",
+  "nota_999": "999 = no alcanzable dentro de los limites de busqueda",
+  "municipios_sin_servicio": [],
+  "red_urbana_palma_incluida": true
+ },
+ "municipios": {
+  "Valldemossa": [
+   94,
+   43
+  ],
+  "Vilafranca de Bonany": [
+   67,
+   44
+  ],
+  "Búger": [
+   96,
+   41
+  ],
+  "Campanet": [
+   94,
+   42
+  ],
+  "Campos": [
+   86,
+   36
+  ],
+  "Capdepera": [
+   135,
+   81
+  ],
+  "Consell": [
+   94,
+   33
+  ],
+  "Costitx": [
+   113,
+   43
+  ],
+  "Deià": [
+   115,
+   54
+  ],
+  "Escorca": [
+   206,
+   61
+  ],
+  "Alaró": [
+   120,
+   38
+  ],
+  "Alcúdia": [
+   102,
+   52
+  ],
+  "Algaida": [
+   67,
+   35
+  ],
+  "Andratx": [
+   110,
+   41
+  ],
+  "Artà": [
+   129,
+   74
+  ],
+  "Banyalbufar": [
+   121,
+   54
+  ],
+  "Binissalem": [
+   86,
+   35
+  ],
+  "Bunyola": [
+   89,
+   34
+  ],
+  "Calvià": [
+   127,
+   37
+  ],
+  "Esporles": [
+   105,
+   39
+  ],
+  "Estellencs": [
+   137,
+   64
+  ],
+  "Felanitx": [
+   99,
+   49
+  ],
+  "Inca": [
+   80,
+   39
+  ],
+  "Fornalutx": [
+   137,
+   55
+  ],
+  "Lloret de Vistalegre": [
+   112,
+   45
+  ],
+  "Lloseta": [
+   88,
+   40
+  ],
+  "Llubí": [
+   121,
+   43
+  ],
+  "Llucmajor": [
+   73,
+   30
+  ],
+  "Manacor": [
+   87,
+   58
+  ],
+  "Mancor de la Vall": [
+   121,
+   49
+  ],
+  "Maria de la Salut": [
+   145,
+   51
+  ],
+  "Marratxí": [
+   80,
+   24
+  ],
+  "Montuïri": [
+   68,
+   40
+  ],
+  "Muro": [
+   141,
+   54
+  ],
+  "Palma": [
+   42,
+   27
+  ],
+  "Porreres": [
+   106,
+   42
+  ],
+  "Petra": [
+   107,
+   51
+  ],
+  "Pollença": [
+   129,
+   54
+  ],
+  "Sa Pobla": [
+   96,
+   44
+  ],
+  "Santa María del Camí": [
+   86,
+   31
+  ],
+  "Santanyí": [
+   108,
+   53
+  ],
+  "Puigpunyent": [
+   127,
+   44
+  ],
+  "Selva": [
+   135,
+   45
+  ],
+  "ses Salines": [
+   130,
+   55
+  ],
+  "Sencelles": [
+   121,
+   38
+  ],
+  "Sineu": [
+   101,
+   45
+  ],
+  "Sóller": [
+   94,
+   48
+  ],
+  "Sant Joan": [
+   121,
+   45
+  ],
+  "Sant Llorenç des Cardassar": [
+   112,
+   64
+  ],
+  "Santa Eugènia": [
+   114,
+   32
+  ],
+  "Santa Margalida": [
+   128,
+   57
+  ],
+  "Son Servera": [
+   123,
+   69
+  ],
+  "Ariany": [
+   155,
+   54
+  ]
+ }
+}
