@@ -1,0 +1,112 @@
+{
+ "pendientes": [
+  {
+   "nombre": "Blanca Terra",
+   "localidad_pedania": "Montuïri",
+   "direccion_exacta": "Ctra. Palma-Manacor Km 30, 07230 Montuïri",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Binigrau",
+   "localidad_pedania": "Biniali (Sencelles)",
+   "direccion_exacta": "Carrer Fiol 33, 07143 Biniali",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Mortitx",
+   "localidad_pedania": "Escorca",
+   "direccion_exacta": "Ctra. Pollença-Lluc Km 10,90, 07315 Escorca",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Bodega Ribas",
+   "localidad_pedania": "Consell",
+   "direccion_exacta": "Carrer Muntanya 2, 07330 Consell",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Son Mayol",
+   "localidad_pedania": "Establiments (Palma)",
+   "direccion_exacta": "Camí de Can Mallol 9, 07010 Establiments",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Son Vich de Superna",
+   "localidad_pedania": "Puigpunyent",
+   "direccion_exacta": null,
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Son Vives",
+   "localidad_pedania": "Banyalbufar",
+   "direccion_exacta": null,
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Conde de Suyrot",
+   "localidad_pedania": "Colònia de Sant Pere (Artà)",
+   "direccion_exacta": "Carretera de Betlem Km 6, 07579 Colònia de Sant Pere",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Karretània",
+   "localidad_pedania": "Consell",
+   "direccion_exacta": "Avinguda del Raiguer, 07330 Consell",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Son Juliana",
+   "localidad_pedania": "Santa Eugènia",
+   "direccion_exacta": null,
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Bodegues Vidal Serra",
+   "localidad_pedania": "Santa Eugènia",
+   "direccion_exacta": "C/ Ca ses Monges 15, 07142 Santa Eugènia",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  },
+  {
+   "nombre": "Can Picó (Malvasia)",
+   "localidad_pedania": "Banyalbufar",
+   "direccion_exacta": "Can Picó, 07191 Banyalbufar",
+   "estado": "operativo",
+   "tipo": "bodega",
+   "fuente": "petitscellers.es",
+   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
+  }
+ ]
+}

@@ -11,7 +11,8 @@
     "fuentes": [
       "https://binissalemdo.com/bodegas-do-binissalem/ (consultado 2026-07, D.O. Binissalem, actualizado 2026-06-15)",
       "https://doplaillevant.com/bodegas/ (D.O. Pla i Llevant)",
-      "https://turismoruralmallorca.com/es/establecimientos-asociados (ABATI - Asociacion Balear de Agroturismo y Turismo de Interior)"
+      "https://turismoruralmallorca.com/es/establecimientos-asociados (ABATI - Asociacion Balear de Agroturismo y Turismo de Interior)",
+      "https://petitscellers.es/bodegas/ (consultado 2026-10-02, agrupacion Petits Cellers de Mallorca; direcciones verificadas en la web propia de cada bodega)"
     ]
   },
   "bodegas": [
@@ -38,7 +39,38 @@
     {"nombre":"Miquel Oliver","localidad_pedania":"Petra","direccion_exacta":"Ctra Petra-Sta Margalida KM 1.8, 07520 Petra","estado":"operativo","tipo":"bodega","fuente":"DO Pla i Llevant"},
     {"nombre":"Pere Seda Vinyes i Bodegues","localidad_pedania":"Manacor","direccion_exacta":"C/ Cid Campeador 22, 07500 Manacor","estado":"operativo","tipo":"bodega","fuente":"DO Pla i Llevant"},
     {"nombre":"Vins Toni Gelabert","localidad_pedania":"Manacor","direccion_exacta":"Ctra Manacor-Felanitx, Camí de Son Fangos, 07500 Manacor","estado":"operativo","tipo":"bodega","fuente":"DO Pla i Llevant"},
-    {"nombre":"Vins Miquel Gelabert","localidad_pedania":"Manacor","direccion_exacta":"C/ Sales 50, 07500 Manacor","estado":"operativo","tipo":"bodega","fuente":"DO Pla i Llevant"}
+    {"nombre":"Vins Miquel Gelabert","localidad_pedania":"Manacor","direccion_exacta":"C/ Sales 50, 07500 Manacor","estado":"operativo","tipo":"bodega","fuente":"DO Pla i Llevant"},
+
+    {"nombre":"7103 Petit Celler","localidad_pedania":"Santa Maria del Camí","direccion_exacta":"Calle Jaume Oliver Frontera s/n, 07320 Santa Maria del Camí","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Ava Vi","localidad_pedania":"Binissalem","direccion_exacta":"C/ Sant Vicenç de Paül 15, 07350 Binissalem","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Bodegas Angel","localidad_pedania":"Santa Maria del Camí","direccion_exacta":"Ctra. Santa Maria - Sencelles, 07320 Santa Maria del Camí","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Ànima Negra","localidad_pedania":"Felanitx","direccion_exacta":null,"estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Antonio Nadal","localidad_pedania":"Binissalem","direccion_exacta":"C/ Camí Son Roig s/n, 07350 Binissalem","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Blanca Terra","localidad_pedania":"Montuïri","direccion_exacta":"Ctra. Palma-Manacor Km 30, 07230 Montuïri","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Binigrau","localidad_pedania":"Biniali (Sencelles)","direccion_exacta":"Carrer Fiol 33, 07143 Biniali","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Es Verger","localidad_pedania":"Esporles","direccion_exacta":"S'Hort d'es Verger s/n, 07190 Esporles","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Galmés i Ribot","localidad_pedania":"Santa Margalida","direccion_exacta":"Plaça de la Vila 8, 07450 Santa Margalida","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Castell Miquel","localidad_pedania":"Alaró","direccion_exacta":"Ctra. Alaró-Lloseta Km 8,7, 07340 Alaró","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Mortitx","localidad_pedania":"Escorca","direccion_exacta":"Ctra. Pollença-Lluc Km 10,90, 07315 Escorca","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Oliver Moragues","localidad_pedania":"Algaida","direccion_exacta":"Camí de ses Vinyes s/n, 07210 Algaida","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Ramanyà","localidad_pedania":"Santa Maria del Camí","direccion_exacta":"Camí des Coscois 16, 07320 Santa Maria del Camí","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Bodega Ribas","localidad_pedania":"Consell","direccion_exacta":"Carrer Muntanya 2, 07330 Consell","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Campaner","localidad_pedania":"Sencelles","direccion_exacta":"Camí de Son Campaner (Pol. 6, Parcel·la 197), 07140 Sencelles","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Sa Cabana","localidad_pedania":"Binissalem","direccion_exacta":"Camí de Pou de Torrents s/n, 07350 Binissalem","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Prim","localidad_pedania":"Sencelles","direccion_exacta":null,"estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Mayol","localidad_pedania":"Establiments (Palma)","direccion_exacta":"Camí de Can Mallol 9, 07010 Establiments","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Vich de Superna","localidad_pedania":"Puigpunyent","direccion_exacta":null,"estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Ramón","localidad_pedania":"Llubí","direccion_exacta":"Ctra. Muro-Inca Km 4,5, 07430 Llubí","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Vives","localidad_pedania":"Banyalbufar","direccion_exacta":null,"estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Conde de Suyrot","localidad_pedania":"Colònia de Sant Pere (Artà)","direccion_exacta":"Carretera de Betlem Km 6, 07579 Colònia de Sant Pere","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Vi d'Auba","localidad_pedania":"Felanitx","direccion_exacta":"Sa Volta 2 (Ctra. Felanitx-Santanyí Km 0,5), 07200 Felanitx","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Xaloc","localidad_pedania":"Pollença","direccion_exacta":"Polígono 1, Camí de Can Puig, 07460 Pollença","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Bodega Olorón","localidad_pedania":"Alaró","direccion_exacta":"Sa Teulera Nova (Pol. 4, Parcel·la 98), 07340 Alaró","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Karretània","localidad_pedania":"Consell","direccion_exacta":"Avinguda del Raiguer, 07330 Consell","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Son Juliana","localidad_pedania":"Santa Eugènia","direccion_exacta":null,"estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Bodegues Vidal Serra","localidad_pedania":"Santa Eugènia","direccion_exacta":"C/ Ca ses Monges 15, 07142 Santa Eugènia","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Can Picó (Malvasia)","localidad_pedania":"Banyalbufar","direccion_exacta":"Can Picó, 07191 Banyalbufar","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"},
+    {"nombre":"Ses Roques - Vins Ripoll","localidad_pedania":"Binissalem","direccion_exacta":"Carrer de Ses Roques, 07350 Binissalem","estado":"operativo","tipo":"bodega","fuente":"petitscellers.es"}
   ],
   "agroturismos": [
     {"nombre":"Can Cota","localidad_pedania":"Selva","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI"},
