@@ -442,5 +442,155 @@
  "dir::Calle Major 13, Son Carrió, Illes Balears, Spain": null,
  "libre::Restaurant Alma - Cas Patró, Son Carrió, Mallorca, Spain": null,
  "libre::Fet a Sóller, Sóller, Mallorca, Spain": null,
- "libre::Albaflor - Vins Nadal, Binissalem, Mallorca, Spain": null
+ "libre::Albaflor - Vins Nadal, Binissalem, Mallorca, Spain": null,
+ "dir::Calle Jaume Oliver Frontera s/n, 07320 Santa Maria del Camí, Illes Balears, Spain": null,
+ "libre::7103 Petit Celler, Santa Maria del Camí, Mallorca, Spain": null,
+ "dir::C/ Sant Vicenç de Paül 15, 07350 Binissalem, Illes Balears, Spain": {
+  "lat": 39.688881,
+  "lon": 2.8433683,
+  "display_name": "carrer Sant Vicenç de Paül, Binissalem, Raiguer, Illes Balears, 07350, España",
+  "osm_class": "highway",
+  "osm_type": "residential"
+ },
+ "dir::Ctra. Santa Maria - Sencelles, 07320 Santa Maria del Camí, Illes Balears, Spain": null,
+ "libre::Bodegas Angel, Santa Maria del Camí, Mallorca, Spain": null,
+ "libre::Ànima Negra, Felanitx, Mallorca, Spain": null,
+ "dir::C/ Camí Son Roig s/n, 07350 Binissalem, Illes Balears, Spain": null,
+ "libre::Antonio Nadal, Binissalem, Mallorca, Spain": null,
+ "dir::Ctra. Palma-Manacor Km 30, 07230 Montuïri, Illes Balears, Spain": null,
+ "libre::Blanca Terra, Montuïri, Mallorca, Spain": {
+  "lat": 39.5599395,
+  "lon": 2.99375,
+  "display_name": "Blanca Terra, Ma-15, Montuïri, Pla de Mallorca, Illes Balears, 07230, España",
+  "osm_class": "craft",
+  "osm_type": "winery"
+ },
+ "dir::Carrer Fiol 33, 07143 Biniali, Illes Balears, Spain": {
+  "lat": 39.6428472,
+  "lon": 2.8584393,
+  "display_name": "carrer d'en Fiol, Biniali, Sencelles, Pla de Mallorca, Illes Balears, 07140, España",
+  "osm_class": "highway",
+  "osm_type": "tertiary"
+ },
+ "dir::S'Hort d'es Verger s/n, 07190 Esporles, Illes Balears, Spain": null,
+ "libre::Es Verger, Esporles, Mallorca, Spain": null,
+ "dir::Plaça de la Vila 8, 07450 Santa Margalida, Illes Balears, Spain": {
+  "lat": 39.7017066,
+  "lon": 3.1024355,
+  "display_name": "Plaça de la Vila, Centre, Santa Margalida, Pla de Mallorca, Illes Balears, 07519, España",
+  "osm_class": "highway",
+  "osm_type": "residential"
+ },
+ "dir::Ctra. Alaró-Lloseta Km 8,7, 07340 Alaró, Illes Balears, Spain": null,
+ "libre::Castell Miquel, Alaró, Mallorca, Spain": null,
+ "dir::Ctra. Pollença-Lluc Km 10,90, 07315 Escorca, Illes Balears, Spain": null,
+ "libre::Mortitx, Escorca, Mallorca, Spain": null,
+ "struct::Escorca": {
+  "lat": 39.8248443,
+  "lon": 2.8422276,
+  "display_name": "Escorca, Serra de Tramuntana, Illes Balears, 07315, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::Camí de ses Vinyes s/n, 07210 Algaida, Illes Balears, Spain": {
+  "lat": 39.558925,
+  "lon": 2.9038381,
+  "display_name": "camí de darrera ses Vinyes, Algaida, Pla de Mallorca, Illes Balears, 07199, España",
+  "osm_class": "highway",
+  "osm_type": "unclassified"
+ },
+ "dir::Camí des Coscois 16, 07320 Santa Maria del Camí, Illes Balears, Spain": null,
+ "libre::Ramanyà, Santa Maria del Camí, Mallorca, Spain": null,
+ "dir::Carrer Muntanya 2, 07330 Consell, Illes Balears, Spain": null,
+ "libre::Bodega Ribas, Consell, Mallorca, Spain": null,
+ "struct::Consell": {
+  "lat": 39.6685608,
+  "lon": 2.8134417,
+  "display_name": "Consell, Raiguer, Illes Balears, 07330, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::Camí de Son Campaner (Pol. 6, Parcel·la 197), 07140 Sencelles, Illes Balears, Spain": null,
+ "libre::Son Campaner, Sencelles, Mallorca, Spain": {
+  "lat": 39.6625955,
+  "lon": 2.9007394,
+  "display_name": "Son Campaner, Binifuell, Sencelles, Pla de Mallorca, Illes Balears, España",
+  "osm_class": "landuse",
+  "osm_type": "vineyard"
+ },
+ "dir::Camí de Pou de Torrents s/n, 07350 Binissalem, Illes Balears, Spain": null,
+ "libre::Sa Cabana, Binissalem, Mallorca, Spain": null,
+ "libre::Son Prim, Sencelles, Mallorca, Spain": {
+  "lat": 39.6691615,
+  "lon": 2.9159395,
+  "display_name": "Son Prim, camí vell de Jornets, Biniferrí, Sencelles, Pla de Mallorca, Illes Balears, 07144, España",
+  "osm_class": "shop",
+  "osm_type": "alcohol"
+ },
+ "dir::Camí de Can Mallol 9, 07010 Establiments, Illes Balears, Spain": {
+  "lat": 39.636136,
+  "lon": 2.618562,
+  "display_name": "Camí de Can Mallol, Establiments Nou, Districte Nord, Palma, Illes Balears, 07121, España",
+  "osm_class": "highway",
+  "osm_type": "unclassified"
+ },
+ "libre::Son Vich de Superna, Puigpunyent, Mallorca, Spain": null,
+ "struct::Puigpunyent": {
+  "lat": 39.6273152,
+  "lon": 2.528306,
+  "display_name": "Puigpunyent, Serra de Tramuntana, Illes Balears, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::Ctra. Muro-Inca Km 4,5, 07430 Llubí, Illes Balears, Spain": null,
+ "libre::Son Ramón, Llubí, Mallorca, Spain": {
+  "lat": 39.7275723,
+  "lon": 3.0096586,
+  "display_name": "Son Ramon, Llubí, Pla de Mallorca, Illes Balears, 07430, España",
+  "osm_class": "place",
+  "osm_type": "locality"
+ },
+ "libre::Son Vives, Banyalbufar, Mallorca, Spain": null,
+ "struct::Banyalbufar": {
+  "lat": 39.6874544,
+  "lon": 2.5147715,
+  "display_name": "Banyalbufar, Serra de Tramuntana, Illes Balears, 07191, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::Carretera de Betlem Km 6, 07579 Colònia de Sant Pere, Illes Balears, Spain": null,
+ "libre::Conde de Suyrot, Colònia de Sant Pere (Artà), Mallorca, Spain": null,
+ "struct::Colònia de Sant Pere (Artà)": null,
+ "dir::Sa Volta 2 (Ctra. Felanitx-Santanyí Km 0,5), 07200 Felanitx, Illes Balears, Spain": null,
+ "libre::Vi d'Auba, Felanitx, Mallorca, Spain": null,
+ "dir::Polígono 1, Camí de Can Puig, 07460 Pollença, Illes Balears, Spain": null,
+ "libre::Xaloc, Pollença, Mallorca, Spain": null,
+ "dir::Sa Teulera Nova (Pol. 4, Parcel·la 98), 07340 Alaró, Illes Balears, Spain": null,
+ "libre::Bodega Olorón, Alaró, Mallorca, Spain": null,
+ "dir::Avinguda del Raiguer, 07330 Consell, Illes Balears, Spain": {
+  "lat": 39.664799,
+  "lon": 2.8050045,
+  "display_name": "Avinguda del Raiguer, Consell, Raiguer, Illes Balears, 07330, España",
+  "osm_class": "highway",
+  "osm_type": "residential"
+ },
+ "libre::Son Juliana, Santa Eugènia, Mallorca, Spain": null,
+ "struct::Santa Eugènia": {
+  "lat": 39.6227068,
+  "lon": 2.8365544,
+  "display_name": "Santa Eugènia, Pla de Mallorca, Illes Balears, 07142, España",
+  "osm_class": "boundary",
+  "osm_type": "administrative"
+ },
+ "dir::C/ Ca ses Monges 15, 07142 Santa Eugènia, Illes Balears, Spain": null,
+ "libre::Bodegues Vidal Serra, Santa Eugènia, Mallorca, Spain": null,
+ "dir::Can Picó, 07191 Banyalbufar, Illes Balears, Spain": {
+  "lat": 39.6871448,
+  "lon": 2.5074157,
+  "display_name": "Can Pico, Banyalbufar, Serra de Tramuntana, Illes Balears, 07191, España",
+  "osm_class": "place",
+  "osm_type": "locality"
+ },
+ "dir::Carrer de Ses Roques, 07350 Binissalem, Illes Balears, Spain": null,
+ "libre::Ses Roques - Vins Ripoll, Binissalem, Mallorca, Spain": null
 }
