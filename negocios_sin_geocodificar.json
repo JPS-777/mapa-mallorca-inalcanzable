@@ -1,13 +1,3 @@
 {
- "pendientes": [
-  {
-   "nombre": "Conde de Suyrot",
-   "localidad_pedania": "Colònia de Sant Pere (Artà)",
-   "direccion_exacta": "Carretera de Betlem Km 6, 07579 Colònia de Sant Pere",
-   "estado": "operativo",
-   "tipo": "bodega",
-   "fuente": "petitscellers.es",
-   "motivo": "ningun metodo dio un resultado valido dentro de Mallorca"
-  }
- ]
+ "pendientes": []
 }

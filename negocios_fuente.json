@@ -4,7 +4,7 @@
     "campos": {
       "localidad_pedania": "Nombre del nucleo/pedania tal como lo da la fuente original (puede no ser un municipio oficial: p.ej. Caimari, Cala d'Or, Ca'n Picafort, Orient, Sant Elm, Calonge, Son Carrio, Port de Pollenca)",
       "municipio_oficial": "SE RELLENA AUTOMATICAMENTE por geocodificar_negocios.py mediante point-in-polygon contra la geometria real del IGN (mallorca.geojson). Nunca se asigna a mano.",
-      "estado": "operativo | proxima_apertura",
+      "estado": "operativo",
       "direccion_exacta": "Calle+CP cuando la fuente la da (D.O. Pla i Llevant); null si solo hay nombre+localidad",
       "tipo": "bodega | agroturismo | gastronomia"
     },
@@ -12,7 +12,8 @@
       "https://binissalemdo.com/bodegas-do-binissalem/ (consultado 2026-07, D.O. Binissalem, actualizado 2026-06-15)",
       "https://doplaillevant.com/bodegas/ (D.O. Pla i Llevant)",
       "https://turismoruralmallorca.com/es/establecimientos-asociados (ABATI - Asociacion Balear de Agroturismo y Turismo de Interior)",
-      "https://petitscellers.es/bodegas/ (consultado 2026-10-02, agrupacion Petits Cellers de Mallorca; direcciones verificadas en la web propia de cada bodega)"
+      "https://petitscellers.es/bodegas/ (consultado 2026-10-02, agrupacion Petits Cellers de Mallorca; direcciones verificadas en la web propia de cada bodega)",
+      "https://guide.michelin.com/es/es/islas-baleares (consultado 2026-10-03, Guia Michelin Espana y Portugal 2026, seleccion Mallorca; direcciones cruzadas con la web propia de cada restaurante)"
     ]
   },
   "bodegas": [
@@ -100,7 +101,6 @@
     {"nombre":"Sos Ferres d'en Morey","localidad_pedania":"Manacor","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI"},
     {"nombre":"Tofollubi","localidad_pedania":"Llubí","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI"},
     {"nombre":"Almond Valley","localidad_pedania":"Pollença","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI"},
-    {"nombre":"Starbal Mallorca","localidad_pedania":"Porreres","direccion_exacta":null,"estado":"proxima_apertura","tipo":"agroturismo","fuente":"ABATI"},
     {"nombre":"Son Fogueró","localidad_pedania":"María de la Salut","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI"},
     {"nombre":"Finca Son Cladera","localidad_pedania":"Sa Pobla","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI","nota":"aparece dos veces en la web de origen (posible duplicado o dos fincas homonimas); verificar"},
     {"nombre":"Hotel & Spa Maristel","localidad_pedania":"Estellencs","direccion_exacta":null,"estado":"operativo","tipo":"agroturismo","fuente":"ABATI"},
@@ -134,6 +134,17 @@
   ],
   "gastronomia": [
     {"nombre":"Restaurant Alma - Cas Patró","localidad_pedania":"Son Carrió","direccion_exacta":"Calle Major 13, Son Carrió","estado":"operativo","tipo":"gastronomia","fuente":"ABATI (asociado colaborador)","nota":"Son Carrio es pedania de Sant Llorenç des Cardassar"},
-    {"nombre":"Fet a Sóller","localidad_pedania":"Sóller","direccion_exacta":null,"estado":"operativo","tipo":"gastronomia","fuente":"ABATI (asociado colaborador)"}
+    {"nombre":"Fet a Sóller","localidad_pedania":"Sóller","direccion_exacta":null,"estado":"operativo","tipo":"gastronomia","fuente":"ABATI (asociado colaborador)"},
+    {"nombre":"Voro","localidad_pedania":"Canyamel","direccion_exacta":"Urb. Atalaya de Canyamel, 07589 Canyamel","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Canyamel es pedania de Capdepera; 2 estrellas Michelin; hotel Park Hyatt Mallorca"},
+    {"nombre":"Marc Fosh","localidad_pedania":"Palma","direccion_exacta":"Carrer de la Missió 7A, 07003 Palma","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"1 estrella Michelin"},
+    {"nombre":"DINS by Santi Taura","localidad_pedania":"Palma","direccion_exacta":"Plaça de Llorenç Villalonga 4, 07001 Palma","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"1 estrella Michelin"},
+    {"nombre":"Maca de Castro","localidad_pedania":"Port d'Alcúdia","direccion_exacta":"Carrer de Juno s/n, 07410 Port d'Alcúdia","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Port d'Alcudia es pedania de Alcudia; 1 estrella Michelin"},
+    {"nombre":"Terrae","localidad_pedania":"Port de Pollença","direccion_exacta":"Carrer de la Verge del Carme 28, 07470 Port de Pollença","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Port de Pollenca es pedania de Pollenca; hotel Son Brull; 1 estrella Michelin"},
+    {"nombre":"Andreu Genestra","localidad_pedania":"Llucmajor","direccion_exacta":"Camí de Sa Torre, Km 8,7, 07609 Llucmajor","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"hotel Zoëtry Mallorca (trasladado desde Capdepera en 2026); 1 estrella Michelin"},
+    {"nombre":"Ca na Toneta","localidad_pedania":"Caimari","direccion_exacta":"Carrer de l'Horitzó 21, 07314 Caimari","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Caimari es pedania de Selva; 1 estrella Michelin"},
+    {"nombre":"Zaranda","localidad_pedania":"Palma","direccion_exacta":"Carrer de Sant Feliu (Bala Roja) 1, 07012 Palma","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"1 estrella Michelin"},
+    {"nombre":"Sa Clastra","localidad_pedania":"Es Capdellà","direccion_exacta":"Carretera Es Capdellà, Km 1,7, 07196 Es Capdellà","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Es Capdella es pedania de Calvia; hotel Castell Son Claret; 1 estrella Michelin"},
+    {"nombre":"Es Fum","localidad_pedania":"Palmanova","direccion_exacta":"Carretera Palma-Andratx 19, 07181 Palmanova","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Palmanova es pedania de Calvia; hotel St. Regis Mardavall; 1 estrella Michelin"},
+    {"nombre":"Fusión 19","localidad_pedania":"Platja de Muro","direccion_exacta":"Avinguda de s'Albufera 23, 07458 Platja de Muro","estado":"operativo","tipo":"gastronomia","fuente":"Guia Michelin 2026","nota":"Platja de Muro es pedania de Muro; 1 estrella Michelin"}
   ]
 }
