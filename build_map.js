@@ -241,7 +241,7 @@ ${dots}        </g>
         <div class="key"><div class="sw" style="background:${COLOR.bodega}"></div>Bodegas</div>
         <div class="key"><div class="sw" style="background:${COLOR.agroturismo}"></div>Agroturismos</div>
         <div class="key"><div class="sw" style="background:${COLOR.gastronomia}"></div>Gastronomía</div>
-        <div class="key"><div class="sw" style="background:#fff;border:1.5px dashed #002B49"></div>Próxima apertura</div>
+        ${nProxima>0 ? '<div class="key"><div class="sw" style="background:#fff;border:1.5px dashed #002B49"></div>Próxima apertura</div>' : ''}
         <div class="key"><div class="sw" style="background:#E31B23;border-radius:50%"></div>Origen</div>
       </div>
     </div>
@@ -268,7 +268,7 @@ ${dots}        </g>
       <label class="chk"><input type="checkbox" id="tBodega" checked> Bodegas (${nBodegas})</label>
       <label class="chk"><input type="checkbox" id="tAgro" checked> Agroturismos (${nAgro})</label>
       <label class="chk"><input type="checkbox" id="tGastro" checked> Gastronomía (${nGastro})</label>
-      <label class="chk"><input type="checkbox" id="tProxima" checked> Incluir "próxima apertura" (${nProxima})</label>
+      ${nProxima>0 ? `<label class="chk"><input type="checkbox" id="tProxima" checked> Incluir "próxima apertura" (${nProxima})</label>` : ''}
     </div>
     <hr style="border:0;border-top:1px solid #E2E8F0;margin:14px 0">
     <div class="stat teal"><div class="big" id="s1">-</div><div class="cap">municipios alcanzables<br>de ${nMun} en Mallorca</div></div>
@@ -360,7 +360,8 @@ ${dots}        </g>
   document.getElementById('tBodega').addEventListener('change',function(){showBodega=this.checked;render();});
   document.getElementById('tAgro').addEventListener('change',function(){showAgro=this.checked;render();});
   document.getElementById('tGastro').addEventListener('change',function(){showGastro=this.checked;render();});
-  document.getElementById('tProxima').addEventListener('change',function(){showProxima=this.checked;render();});
+  var tProximaEl = document.getElementById('tProxima');
+  if(tProximaEl) tProximaEl.addEventListener('change',function(){showProxima=this.checked;render();});
 
   muns.forEach(function(p){
     p.addEventListener('mousemove',function(e){
